@@ -3,7 +3,6 @@ import {
   withStyles,
   CardActionArea,
   Card,
-  CardMedia,
   CardContent,
   Typography,
   CardActions,

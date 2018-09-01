@@ -1,5 +1,5 @@
 import React from 'react';
-import EmptySection from '../shared/EmptySection';
+// import EmptySection from '../shared/EmptySection';
 import { withStyles } from '@material-ui/core';
 import ActorCard from './ActorCard';
 
@@ -19,7 +19,7 @@ const styles = theme => ({
 const Actors = ({ classes }) => (
   <div className={classes.grid}>
     {Array.from({ length: 5 }).map((_, i) => (
-      <ActorCard id={i} className={classes.actorCard} />
+      <ActorCard key={i} id={i} className={classes.actorCard} />
     ))}
     {/* <EmptySection
       subtitle="Start by adding an Actor."
