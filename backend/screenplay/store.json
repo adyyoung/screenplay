@@ -1,0 +1,76 @@
+{
+  "actors": {
+    "cjllbta1l00002la03hf7jtz9": {
+      "id": "cjllbta1l00002la03hf7jtz9",
+      "name": "Plain Jane",
+      "description": "Jane is an average app user",
+      "avatarId": "actress",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": "jane"
+        },
+        {
+          "key": "password",
+          "value": "password",
+          "password": true
+        }
+      ]
+    },
+    "cjllbu9yj00012la0oi471d0k": {
+      "id": "cjllbu9yj00012la0oi471d0k",
+      "name": "Aaron the auditor",
+      "description": "Aaron wants to audit data on the website",
+      "avatarId": "businessman",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": ""
+        },
+        {
+          "key": "password",
+          "value": ""
+        }
+      ]
+    },
+    "cjllbuupq00022la0qkays723": {
+      "id": "cjllbuupq00022la0qkays723",
+      "name": "Erik the ejitt",
+      "description": "Erik forgot his password",
+      "avatarId": "zombie",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": ""
+        },
+        {
+          "key": "password",
+          "value": ""
+        }
+      ]
+    },
+    "cjllbwdrw00032la0gsdqp6uq": {
+      "id": "cjllbwdrw00032la0gsdqp6uq",
+      "name": "Cody the caveman",
+      "description": "Cody doesn't know why he's on the app",
+      "avatarId": "caveman",
+      "customAttributes": []
+    },
+    "cjllby7g300042la01l1of4uw": {
+      "id": "cjllby7g300042la01l1of4uw",
+      "name": "Bot",
+      "description": "Bot user",
+      "avatarId": "robot",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": ""
+        },
+        {
+          "key": "password",
+          "value": ""
+        }
+      ]
+    }
+  }
+}

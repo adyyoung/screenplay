@@ -40,4 +40,5 @@ const reducers = combineReducers({
   actors: actorsReducer
 });
 
-module.exports = createStore(reducers, { actors: {} });
+module.exports = initialState =>
+  createStore(reducers, initialState || { actors: {} });

@@ -18,7 +18,9 @@ const styles = theme => ({
     width: '100%'
   },
   card: {
-    height: '100%'
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 const Actors = ({ classes, className, actor, onEdit, onDelete }) => (
@@ -40,6 +42,8 @@ const Actors = ({ classes, className, actor, onEdit, onDelete }) => (
           <Typography component="p">{actor.description}</Typography>
         </CardContent>
       </CardActionArea>
+
+      <div style={{ flex: 1 }} />
       <CardActions>
         <Button size="small" color="primary" onClick={onEdit}>
           Edit
