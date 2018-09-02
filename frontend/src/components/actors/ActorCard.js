@@ -13,35 +13,38 @@ const styles = theme => ({
   avatar: {
     maxWidth: 200,
     margin: theme.spacing.unit * 2
+  },
+  cardActionArea: {
+    width: '100%'
+  },
+  card: {
+    height: '100%'
   }
 });
-const Actors = ({ classes, className, id = 0 }) => (
+const Actors = ({ classes, className, actor, onEdit, onDelete }) => (
   <div className={className}>
     <Card className={classes.card}>
-      <CardActionArea>
+      <CardActionArea className={classes.cardActionArea} onClick={onEdit}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <img
-            alt="robots"
+            alt={actor.avatarId}
             className={classes.avatar}
-            src={Avatars[id].avatar}
+            src={Avatars.find(a => a.id === actor.avatarId).avatar}
           />
         </div>
 
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
-            {Avatars[id].id}
+            {actor.name}
           </Typography>
-          <Typography component="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </Typography>
+          <Typography component="p">{actor.description}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={onEdit}>
           Edit
         </Button>
-        <Button size="small" color="secondary">
+        <Button size="small" color="secondary" onClick={onDelete}>
           Delete
         </Button>
       </CardActions>

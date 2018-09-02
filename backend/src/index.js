@@ -14,6 +14,7 @@ io.on('connection', socket => {
   emitState(socket);
   socket.on('action', action => {
     if (action && action.type) {
+      console.log('Dispatch: ', action);
       store.dispatch(action);
     } else {
       console.log('invalid action');

@@ -32,15 +32,13 @@ const EmptySection = ({
       </Typography>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         size="large"
         className={classes.cta}
         onClick={onClick}
       >
         {buttonText}
       </Button>
-
-
     </div>
   </div>
 );

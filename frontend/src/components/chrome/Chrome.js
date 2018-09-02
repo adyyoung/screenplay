@@ -16,6 +16,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MainNavigation from './MainNavigation';
 import { Route } from 'react-router-dom';
+import { Paper } from '@material-ui/core';
 
 const drawerWidth = 270;
 
@@ -47,6 +48,20 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     })
+  },
+  contentToolbar: {
+    zIndex: 999,
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    position: 'absolute',
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  },
+  contentToolbarClosed: {
+    marginLeft: theme.spacing.unit * 7,
+    width: `calc(100% - ${theme.spacing.unit * 7}px)`
   },
   menuButton: {
     marginLeft: 12,
@@ -101,7 +116,7 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    const { classes, render } = this.props;
+    const { classes, render, toolbar = () => null } = this.props;
 
     return (
       <React.Fragment>
@@ -152,6 +167,7 @@ class Dashboard extends React.Component {
               </IconButton>
             </Toolbar>
           </AppBar>
+
           <Drawer
             variant="permanent"
             classes={{
@@ -168,15 +184,27 @@ class Dashboard extends React.Component {
               </IconButton>
             </div>
             <Divider />
-            <List>
+            <List style={{ padding: 0 }}>
               <MainNavigation />
             </List>
           </Drawer>
+          <div
+            className={classNames(
+              classes.contentToolbar,
+              !this.state.open && classes.contentToolbarClosed
+            )}
+          >
+            <div className={classes.appBarSpacer} />
+            <AppBar position="static" color="default">
+              <Toolbar>{toolbar()}</Toolbar>
+            </AppBar>
+          </div>
           <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
             <div className={classes.appBarSpacer} />
             {render()}
           </main>
-          <div style={{ position: 'absolute', right: 0, bottom: 0 }}>
+          <Paper style={{ position: 'absolute', right: 0, bottom: 0 }}>
             <Typography variant="caption">
               Icons made by{' '}
               <a href="http://www.freepik.com" title="Freepik">
@@ -196,7 +224,7 @@ class Dashboard extends React.Component {
                 CC 3.0 BY
               </a>
             </Typography>
-          </div>
+          </Paper>
         </div>
       </React.Fragment>
     );
