@@ -7,6 +7,8 @@ import Tasks from './tasks/Tasks';
 import Actions from './actions/Actions';
 import Elements from './elements/Elements';
 import State from './state/State';
+import Tests from './tests/Tests';
+import TestsToolbar from './tests/Toolbar';
 class App extends React.Component {
   render() {
     return (
@@ -49,9 +51,8 @@ class App extends React.Component {
                 path="/tests"
                 render={() => (
                   <Chrome
-                    render={() => (
-                      <pre>{JSON.stringify(process.env, 2, 2)}</pre>
-                    )}
+                    toolbar={() => <TestsToolbar />}
+                    render={() => <Tests />}
                   />
                 )}
               />

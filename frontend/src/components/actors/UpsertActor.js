@@ -90,9 +90,6 @@ class AddActor extends React.Component {
                   return (
                     <Step key={label}>
                       <StepLabel>{label}</StepLabel>
-                      {/* <StepContent> */}
-                      {/* <Typography>{label}</Typography> */}
-                      {/* </StepContent> */}
                     </Step>
                   );
                 })}

@@ -25,11 +25,12 @@
       "customAttributes": [
         {
           "key": "user_name",
-          "value": ""
+          "value": "arrony"
         },
         {
           "key": "password",
-          "value": ""
+          "value": "SuperPassword",
+          "password": true
         }
       ]
     },
@@ -70,6 +71,25 @@
           "key": "password",
           "value": ""
         }
+      ]
+    }
+  },
+  "tests": {
+    "cjllffmiv0001koa09p2wtrg3": {
+      "id": "cjllffmiv0001koa09p2wtrg3",
+      "name": "Sign in to email account",
+      "description": "Should be able to sign in to email account",
+      "tags": [
+        "gmail"
+      ]
+    },
+    "cjllfi48u0003koa0ughe8qwe": {
+      "id": "cjllfi48u0003koa0ughe8qwe",
+      "name": "Go to home page and click about us",
+      "description": "Should be able to go to home page and click about us",
+      "tags": [
+        "test",
+        "qwe"
       ]
     }
   }
