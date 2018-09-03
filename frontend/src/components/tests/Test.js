@@ -1,14 +1,24 @@
 import React from 'react';
-
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
+import Context from '../Context';
 class Test extends React.Component {
   render() {
-    const { test } = this.props;
+    const { testId } = this.props.match.params;
+
     return (
-      <div>
-        <h1>{test.name}</h1>
-      </div>
+      <Context>
+        {({ state }) => {
+          const test = state.tests[testId];
+          if (test) {
+            return <h1>{test.name}</h1>;
+          } else {
+            return null;
+          }
+        }}
+      </Context>
     );
   }
 }
 
-export default Test;
+export default compose(withRouter)(Test);

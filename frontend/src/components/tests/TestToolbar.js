@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import Context from '../Context';
 import AddTest from './AddTest';
-const Toolbar = () => {
+const TestToolbar = () => {
   return (
     <Context.Consumer>
       {({ setDialog }) => (
@@ -21,4 +21,4 @@ const Toolbar = () => {
   );
 };
 
-export default Toolbar;
+export default TestToolbar;

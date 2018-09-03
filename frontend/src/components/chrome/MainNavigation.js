@@ -47,7 +47,7 @@ const MainNavigation = ({ history, match }) => {
   ];
   const renderListItem = ({ label, icon, href, secondary }) => (
     <ListItem
-      selected={href === activePath}
+      selected={activePath.startsWith(href)}
       key={label}
       button
       onClick={() => history.push(href)}

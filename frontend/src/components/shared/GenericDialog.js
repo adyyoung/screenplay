@@ -1,18 +1,23 @@
 import React from 'react';
 import { Dialog } from '@material-ui/core';
+import Context from '../Context';
 
 const GenericDialog = ({ children, onDismiss }) => {
   return (
-    children && (
-      <Dialog
-        open={!!children}
-        onClose={onDismiss}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        {children}
-      </Dialog>
-    )
+    <Context.Consumer>
+      {({ setDialog, dialog }) =>
+        dialog && (
+          <Dialog
+            open={!!dialog}
+            onClose={() => setDialog(null)}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            {dialog}
+          </Dialog>
+        )
+      }
+    </Context.Consumer>
   );
 };
 

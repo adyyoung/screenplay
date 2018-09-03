@@ -15,6 +15,8 @@ import {
   Chip
 } from '@material-ui/core';
 import { addTest } from '../../actions/tests';
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 const styles = theme => ({});
 
@@ -28,6 +30,7 @@ class AddActor extends React.Component {
   };
   render() {
     const { activeStep, name, description, tags } = this.state;
+    const { history } = this.props;
     const steps = ['Scene details', 'Add tags'];
     const buttons = ({
       button1Text,
@@ -174,9 +177,10 @@ class AddActor extends React.Component {
                         button1Disabled: false,
                         button2Text: 'Finish',
                         button2Click: () => {
-                          //   alert('redirect');
-                          dispatch(addTest(cuid(), name, description, tags));
+                          const id = cuid();
+                          dispatch(addTest(id, name, description, tags));
                           setDialog(null);
+                          history.push('/tests/' + id);
                         },
                         button2Disabled: false
                       })}
@@ -193,4 +197,7 @@ class AddActor extends React.Component {
   }
 }
 
-export default withStyles(styles)(AddActor);
+export default compose(
+  withStyles(styles),
+  withRouter
+)(AddActor);

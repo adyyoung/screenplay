@@ -1,7 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
 import Context from '../Context';
-import GenericDialog from '../shared/GenericDialog';
 class State extends React.Component {
   state = {
     serverState: '',
@@ -24,9 +23,7 @@ class State extends React.Component {
           setDialog: (dialog, options) => this.setState({ dialog })
         }}
       >
-        <GenericDialog onDismiss={() => this.setState({ dialog: null })}>
-          {this.state.dialog}
-        </GenericDialog>
+        
         {this.props.children}
       </Context.Provider>
     ) : null;

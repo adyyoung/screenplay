@@ -11,19 +11,20 @@ import {
   Chip,
   Button
 } from '@material-ui/core';
-import UpsertTest from './UpsertTest';
+import AddTest from './AddTest';
 import Context from '../Context';
 import { deleteTest } from '../../actions/tests';
-
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
 const styles = theme => ({});
-const Tests = ({ classes }) => (
+const Tests = ({ classes, history }) => (
   <Context>
     {({ state: { tests }, dispatch, setDialog }) =>
       Object.keys(tests).length === 0 ? (
         <EmptySection
           subtitle="Start by adding a Scene."
           buttonText="Add a scene"
-          onClick={() => setDialog(<UpsertTest />)}
+          onClick={() => setDialog(<AddTest />)}
         />
       ) : (
         <Paper className={classes.root}>
@@ -49,7 +50,11 @@ const Tests = ({ classes }) => (
                     ))}
                   </TableCell>
                   <TableCell>
-                    <Button variant="flat" color="primary">
+                    <Button
+                      onClick={() => history.push(`/tests/${test.id}`)}
+                      variant="flat"
+                      color="primary"
+                    >
                       Edit
                     </Button>
                     <Button
@@ -73,4 +78,7 @@ const Tests = ({ classes }) => (
   </Context>
 );
 
-export default withStyles(styles)(Tests);
+export default compose(
+  withStyles(styles),
+  withRouter
+)(Tests);

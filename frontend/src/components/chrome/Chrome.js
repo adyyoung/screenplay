@@ -17,6 +17,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MainNavigation from './MainNavigation';
 import { Route } from 'react-router-dom';
 import { Paper } from '@material-ui/core';
+import GenericDialog from '../shared/GenericDialog';
 
 const drawerWidth = 270;
 
@@ -121,6 +122,7 @@ class Dashboard extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
+        <GenericDialog />
         <div className={classes.root}>
           <AppBar
             position="absolute"
