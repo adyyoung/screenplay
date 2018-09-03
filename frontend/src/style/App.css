@@ -3,3 +3,26 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#editor-toolbar {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcbcbc+0,8f8f8f+100 */
+  background: #bcbcbc; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    #bcbcbc 0%,
+    #8f8f8f 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    #bcbcbc 0%,
+    #8f8f8f 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #bcbcbc 0%,
+    #8f8f8f 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#8f8f8f',GradientType=0 ); /* IE6-9 */
+  border-top: 1px solid #020202;
+  border-bottom: 1px solid #020202;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Button, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../Context';
 const styles = theme => ({
@@ -8,8 +8,7 @@ const styles = theme => ({
     ...theme.mixins.toolbar,
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing.unit * 2,
-    backgroundColor: '#919191'
+    padding: theme.spacing.unit * 3
   }
 });
 const TestToolbar = ({
@@ -19,7 +18,7 @@ const TestToolbar = ({
   classes
 }) => {
   return (
-    <div className={classes.toolbar}>
+    <div id="editor-toolbar" className={classes.toolbar}>
       <Context.Consumer>
         {({ setDialog, state }) => {
           const test = state.tests[testId];
