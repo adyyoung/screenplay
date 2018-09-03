@@ -1,5 +1,6 @@
 import React from 'react';
 import Context from '../Context';
+import cuid from 'cuid';
 import {
   DialogTitle,
   DialogContent,
@@ -174,7 +175,7 @@ class AddActor extends React.Component {
                         button2Text: 'Finish',
                         button2Click: () => {
                           //   alert('redirect');
-                          dispatch(addTest(name, description, tags));
+                          dispatch(addTest(cuid(), name, description, tags));
                           setDialog(null);
                         },
                         button2Disabled: false

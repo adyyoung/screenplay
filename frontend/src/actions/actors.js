@@ -1,5 +1,6 @@
-export const addActor = (name, description, avatarId, customAttributes) => ({
+export const addActor = (id, name, description, avatarId, customAttributes) => ({
   type: 'ADD_ACTOR',
+  id,
   name,
   description,
   avatarId,

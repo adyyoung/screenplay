@@ -1,14 +1,11 @@
-const cuid = require('cuid');
-
 const actorsReducer = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_ACTOR': {
-      const id = cuid();
       return {
         ...state,
         ...{
-          [id]: {
-            id,
+          [action.id]: {
+            id: action.id,
             name: action.name,
             description: action.description,
             avatarId: action.avatarId,

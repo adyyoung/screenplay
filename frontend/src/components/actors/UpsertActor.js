@@ -1,5 +1,6 @@
 import React from 'react';
 import Context from '../Context';
+import cuid from 'cuid';
 import {
   DialogTitle,
   DialogContent,
@@ -301,6 +302,7 @@ class AddActor extends React.Component {
                           } else {
                             dispatch(
                               addActor(
+                                cuid(),
                                 this.state.name,
                                 this.state.description,
                                 this.state.selectedAvatar,

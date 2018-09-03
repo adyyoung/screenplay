@@ -1,5 +1,6 @@
-export const addTest = (name, description, tags) => ({
+export const addTest = (id, name, description, tags) => ({
   type: 'ADD_TEST',
+  id,
   name,
   description,
   tags
