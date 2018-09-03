@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import Context from '../Context';
-import AddTest from './AddTest';
+import Context from '../../Context';
+import AddTest from '../AddTest';
 const TestToolbar = () => {
   return (
     <Context.Consumer>

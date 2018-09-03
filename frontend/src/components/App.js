@@ -9,8 +9,8 @@ import Elements from './elements/Elements';
 import State from './state/State';
 import Tests from './tests/Tests';
 import TestsToolbar from './tests/Toolbar';
-import Test from './tests/Test';
-import TestToolbar from './tests/TestToolbar';
+import Test from './tests/test-editor';
+import TestToolbar from './tests/test-editor/TestToolbar';
 class App extends React.Component {
   render() {
     return (
