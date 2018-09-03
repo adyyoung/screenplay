@@ -1,24 +1,51 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { withRouter } from 'react-router';
+import { Button, withStyles } from '@material-ui/core';
+import { compose } from 'redux';
 import Context from '../../Context';
-import AddTest from '../AddTest';
-const TestToolbar = () => {
+const styles = theme => ({
+  toolbar: {
+    ...theme.mixins.toolbar,
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing.unit * 2,
+    backgroundColor: '#919191'
+  }
+});
+const TestToolbar = ({
+  match: {
+    params: { testId }
+  },
+  classes
+}) => {
   return (
-    <Context.Consumer>
-      {({ setDialog }) => (
-        <React.Fragment>
-          <div style={{ flex: 1 }} />
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => setDialog(<AddTest />)}
-          >
-            Add a scene
-          </Button>
-        </React.Fragment>
-      )}
-    </Context.Consumer>
+    <div className={classes.toolbar}>
+      <Context.Consumer>
+        {({ setDialog, state }) => {
+          const test = state.tests[testId];
+          if (test) {
+            return (
+              <React.Fragment>
+                <div style={{ flex: 1 }}>{test.name}</div>
+                {/* <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => setDialog(<AddTest />)}
+              >
+                Something
+              </Button> */}
+              </React.Fragment>
+            );
+          } else {
+            return null;
+          }
+        }}
+      </Context.Consumer>
+    </div>
   );
 };
 
-export default TestToolbar;
+export default compose(
+  withRouter,
+  withStyles(styles)
+)(TestToolbar);

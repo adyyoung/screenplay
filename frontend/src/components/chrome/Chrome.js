@@ -99,7 +99,10 @@ const styles = theme => ({
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
     height: '100vh',
-    overflow: 'auto'
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 
@@ -197,9 +200,7 @@ class Dashboard extends React.Component {
             )}
           >
             <div className={classes.appBarSpacer} />
-            <AppBar position="static" color="default">
-              <Toolbar>{toolbar()}</Toolbar>
-            </AppBar>
+            <div>{toolbar()}</div>
           </div>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />

@@ -8,7 +8,7 @@ class Test extends React.Component {
     const { testId } = this.props.match.params;
 
     return (
-      <Context>
+      <Context.Consumer>
         {({ state }) => {
           const test = state.tests[testId];
           if (test) {
@@ -17,7 +17,7 @@ class Test extends React.Component {
             return null;
           }
         }}
-      </Context>
+      </Context.Consumer>
     );
   }
 }
