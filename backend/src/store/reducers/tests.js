@@ -3,7 +3,20 @@ const testReducer = (state = {}, action) => {
     case 'TEST_ADD_ACTOR': {
       return {
         ...state,
-        actors: [...(state.actors || []), { actorId: action.actorId }]
+        actors: [
+          ...(state.actors || []),
+          {
+            actorId: action.actorId,
+            trackName: `Track ${state.actors.length + 1}`
+          }
+        ]
+      };
+    }
+    case 'TEST_RENAME_TRACK': {
+      state.actors[action.trackIndex].trackName = action.newName;
+      return {
+        ...state,
+        actors: [...state.actors]
       };
     }
     default:
@@ -12,7 +25,8 @@ const testReducer = (state = {}, action) => {
 };
 const testsReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'TEST_ADD_ACTOR': {
+    case 'TEST_ADD_ACTOR':
+    case 'TEST_RENAME_TRACK': {
       return {
         ...state,
         [action.id]: testReducer(state[action.id], action)

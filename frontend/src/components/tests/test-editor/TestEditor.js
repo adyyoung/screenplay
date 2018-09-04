@@ -87,10 +87,12 @@ const styles = theme => ({
 });
 class TestEditor extends React.Component {
   state = {
-    scrollFocus: 2
+    scrollFocus: 2,
+    selectedTrackIndex: null
   };
   render() {
     const { test, classes } = this.props;
+    const { selectedTrackIndex } = this.state;
     const handleScroll = ({ target: { scrollTop } }) => {
       if (this.state.scrollFocus === 1) {
         this.refs.trackscroll2.scrollTop = scrollTop;
@@ -112,7 +114,11 @@ class TestEditor extends React.Component {
           >
             {test.actors.map((actor, i) => (
               <ActorBlock
+                selected={selectedTrackIndex === i}
+                onSelect={() => this.setState({ selectedTrackIndex: i })}
                 key={i}
+                index={i}
+                testId={test.id}
                 actor={actor}
                 className={classes.actorBlock}
               />
@@ -140,10 +146,6 @@ class TestEditor extends React.Component {
           >
             {test.actors.map((_, i) => (
               <div key={i} className={classes.track}>
-                <div className={classes.taskBlock} />
-                <div className={classes.taskBlock} />
-                <div className={classes.taskBlock} />
-                <div className={classes.taskBlock} />
                 <div className={classes.taskBlock} />
               </div>
             ))}

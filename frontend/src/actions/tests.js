@@ -16,3 +16,10 @@ export const testAddActor = (testId, actorId) => ({
   id: testId,
   actorId
 });
+
+export const testRenameTrack = (testId, trackIndex, newName) => ({
+  type: 'TEST_RENAME_TRACK',
+  id: testId,
+  trackIndex,
+  newName
+});
