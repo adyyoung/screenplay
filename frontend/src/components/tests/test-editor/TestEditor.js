@@ -6,6 +6,7 @@ import Button from '../../shared/buttons/Button';
 const headerHeight = 40;
 const tickWidth = 200;
 const leftColumn = 140;
+const trackHieght = 100;
 const styles = theme => ({
   root: {
     margin: -theme.spacing.unit * 3,
@@ -55,9 +56,37 @@ const styles = theme => ({
     paddingTop: 6,
     display: 'inline-block',
     borderLeft: '1px solid #5c5c5c'
+  },
+  actorBlock: {
+    height: trackHieght,
+    backgroundColor: '#616161',
+    borderBottom: '1px solid #474747',
+    color: 'white',
+    padding: 3
+  },
+  track: {
+    height: trackHieght,
+    borderBottom: '1px solid rgba(0,0,0,0.35)',
+    display: 'flex'
+  },
+  taskBlock: {
+    marginLeft: 0,
+    marginTop: 0,
+    margonBottom: 2,
+    height: trackHieght - 1,
+    border: '1px solid black',
+    backgroundColor: '#3c7a38',
+    color: 'white',
+    padding: 6,
+    borderRadius: 8,
+    width: tickWidth,
+    fontSize: 12
   }
 });
 class TestEditor extends React.Component {
+  state = {
+    scrollFocus: 2
+  };
   render() {
     const { test, classes } = this.props;
     const handleScroll = ({ target: { scrollTop } }) => {
@@ -81,13 +110,9 @@ class TestEditor extends React.Component {
             style={{ overflowY: 'scroll' }}
           >
             {Array.from({ length: 50 }).map((_, i) => (
-              <Paper
-                key={i + 1}
-                style={{ margin: 4, width: leftColumn - 8, height: 100 }}
-              >
-                {test.name}
-                {i}
-              </Paper>
+              <div key={i + 1} className={classes.actorBlock}>
+                {i + 1}
+              </div>
             ))}
           </div>
         </div>
@@ -111,13 +136,13 @@ class TestEditor extends React.Component {
             }}
           >
             {Array.from({ length: 50 }).map((_, i) => (
-              <Paper
-                key={i + 1}
-                style={{ margin: 4, width: tickWidth, height: 100 }}
-              >
-                content
-                {i}
-              </Paper>
+              <div key={i} className={classes.track}>
+                <div className={classes.taskBlock} />
+                <div className={classes.taskBlock} />
+                <div className={classes.taskBlock} />
+                <div className={classes.taskBlock} />
+                <div className={classes.taskBlock} />
+              </div>
             ))}
           </div>
         </div>
