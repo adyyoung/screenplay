@@ -72,6 +72,30 @@
           "value": ""
         }
       ]
+    },
+    "cjlob0szk00003h5njen5on5f": {
+      "id": "cjlob0szk00003h5njen5on5f",
+      "name": "Astro Adam",
+      "description": "Total space head",
+      "avatarId": "astronaut",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": "astro"
+        },
+        {
+          "key": "password",
+          "value": "test",
+          "password": true
+        }
+      ]
+    },
+    "cjlob642100003h5naqso1y3c": {
+      "id": "cjlob642100003h5naqso1y3c",
+      "name": "Doctor Dan",
+      "description": "Dan is a docter",
+      "avatarId": "surgeon",
+      "customAttributes": []
     }
   },
   "tests": {
@@ -105,7 +129,7 @@
         },
         {
           "actorId": "cjllby7g300042la01l1of4uw",
-          "trackName": "Test"
+          "trackName": "Something"
         },
         {
           "actorId": "cjllbwdrw00032la0gsdqp6uq",
@@ -114,6 +138,10 @@
         {
           "actorId": "cjllbta1l00002la03hf7jtz9",
           "trackName": "Track 8"
+        },
+        {
+          "actorId": "cjllbu9yj00012la0oi471d0k",
+          "trackName": "Track 9"
         }
       ]
     },
@@ -125,7 +153,16 @@
         "test",
         "qwe"
       ],
-      "actors": []
+      "actors": [
+        {
+          "actorId": "cjllbta1l00002la03hf7jtz9",
+          "trackName": "Track 1"
+        },
+        {
+          "actorId": "cjllbu9yj00012la0oi471d0k",
+          "trackName": "Track 2"
+        }
+      ]
     }
   }
 }

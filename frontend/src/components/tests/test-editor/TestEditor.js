@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import AddActor from './components/AddActor';
 import ActorBlock from './components/ActorBlock';
+import TrackContext from './components/TrackContext';
 
 const headerHeight = 40;
 const tickWidth = 200;
@@ -10,9 +11,28 @@ const leftColumn = 140;
 const trackHieght = 100;
 const styles = theme => ({
   root: {
-    margin: -theme.spacing.unit * 3,
     display: 'flex',
-    flex: 1
+    margin: -theme.spacing.unit * 3,
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#919191'
+  },
+  timelineRoot: {
+    display: 'flex',
+    flex: 1,
+    margin: 4,
+    borderRadius: 3,
+    border: '1px solid black',
+    overflow: 'hidden'
+  },
+  trackContextRoot: {
+    display: 'flex',
+    height: 200,
+    margin: 4,
+    marginTop: 0,
+    borderRadius: 3,
+    border: '1px solid black',
+    overflow: 'hidden'
   },
   leftCol: {
     borderRight: '1px solid black',
@@ -88,7 +108,7 @@ const styles = theme => ({
 class TestEditor extends React.Component {
   state = {
     scrollFocus: 2,
-    selectedTrackIndex: null
+    selectedTrackIndex: this.props.test.actors.length ? 0 : null
   };
   render() {
     const { test, classes } = this.props;
@@ -102,55 +122,62 @@ class TestEditor extends React.Component {
     };
     return (
       <div className={classes.root}>
-        <div className={classes.leftCol}>
-          <div className={classes.colHeader1}>
-            <AddActor test={test} />
+        <div className={classes.timelineRoot}>
+          <div className={classes.leftCol}>
+            <div className={classes.colHeader1}>
+              <AddActor test={test} />
+            </div>
+            <div
+              onScroll={handleScroll}
+              onMouseOver={() => this.setState({ scrollFocus: 1 })}
+              ref="trackscroll1"
+              style={{ overflowY: 'scroll' }}
+            >
+              {test.actors.map((actor, i) => (
+                <ActorBlock
+                  selected={selectedTrackIndex === i}
+                  onSelect={() => this.setState({ selectedTrackIndex: i })}
+                  key={i}
+                  index={i}
+                  testId={test.id}
+                  actor={actor}
+                  className={classes.actorBlock}
+                />
+              ))}
+            </div>
           </div>
-          <div
-            onScroll={handleScroll}
-            onMouseOver={() => this.setState({ scrollFocus: 1 })}
-            ref="trackscroll1"
-            style={{ overflowY: 'scroll' }}
-          >
-            {test.actors.map((actor, i) => (
-              <ActorBlock
-                selected={selectedTrackIndex === i}
-                onSelect={() => this.setState({ selectedTrackIndex: i })}
-                key={i}
-                index={i}
-                testId={test.id}
-                actor={actor}
-                className={classes.actorBlock}
-              />
-            ))}
-          </div>
-        </div>
-        <div className={classes.rightCol}>
-          <div className={classes.colHeader2}>
-            {Array.from({ length: 50 }).map((_, i) => (
-              <div key={i + 1} className={classes.tick}>
-                {i + 1}
-              </div>
-            ))}
-          </div>
+          <div className={classes.rightCol}>
+            <div className={classes.colHeader2}>
+              {Array.from({ length: 50 }).map((_, i) => (
+                <div key={i + 1} className={classes.tick}>
+                  {i + 1}
+                </div>
+              ))}
+            </div>
 
-          <div
-            ref="trackscroll2"
-            onMouseOver={() => this.setState({ scrollFocus: 2 })}
-            onScroll={handleScroll}
-            style={{
-              paddingLeft: 8,
-              overflowY: 'scroll',
-              width: 50 * tickWidth
-            }}
-          >
-            {test.actors.map((_, i) => (
-              <div key={i} className={classes.track}>
-                <div className={classes.taskBlock} />
-              </div>
-            ))}
+            <div
+              ref="trackscroll2"
+              onMouseOver={() => this.setState({ scrollFocus: 2 })}
+              onScroll={handleScroll}
+              style={{
+                paddingLeft: 8,
+                overflowY: 'scroll',
+                width: 50 * tickWidth
+              }}
+            >
+              {test.actors.map((_, i) => (
+                <div key={i} className={classes.track}>
+                  <div className={classes.taskBlock} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+        {selectedTrackIndex !== null && (
+          <div className={classes.trackContextRoot}>
+            <TrackContext selectedTrackIndex={selectedTrackIndex} test={test} />
+          </div>
+        )}
       </div>
     );
   }

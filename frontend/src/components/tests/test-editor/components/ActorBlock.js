@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
-import RemoveIcon from '@material-ui/icons/Settings';
 import { compose } from 'redux';
 import Context from '../../../Context';
 import Avatars from '../../../images/avatars';
