@@ -81,6 +81,11 @@
       "description": "Should be able to sign in to email account",
       "tags": [
         "gmail"
+      ],
+      "actors": [
+        {
+          "actorId": "cjllbta1l00002la03hf7jtz9"
+        }
       ]
     },
     "cjllfi48u0003koa0ughe8qwe": {
@@ -90,6 +95,11 @@
       "tags": [
         "test",
         "qwe"
+      ],
+      "actors": [
+        {
+          "actorId": "cjllbu9yj00012la0oi471d0k"
+        }
       ]
     }
   }

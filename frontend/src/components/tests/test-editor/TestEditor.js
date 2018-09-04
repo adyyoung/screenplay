@@ -1,7 +1,8 @@
 import React from 'react';
-import { withStyles, Paper } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
-import Button from '../../shared/buttons/Button';
+import AddActor from './components/AddActor';
+import ActorBlock from './components/ActorBlock';
 
 const headerHeight = 40;
 const tickWidth = 200;
@@ -62,7 +63,8 @@ const styles = theme => ({
     backgroundColor: '#616161',
     borderBottom: '1px solid #474747',
     color: 'white',
-    padding: 3
+    padding: 3,
+    display: 'flex'
   },
   track: {
     height: trackHieght,
@@ -100,19 +102,20 @@ class TestEditor extends React.Component {
       <div className={classes.root}>
         <div className={classes.leftCol}>
           <div className={classes.colHeader1}>
-            <Button icon="add" />
+            <AddActor test={test} />
           </div>
-
           <div
             onScroll={handleScroll}
             onMouseOver={() => this.setState({ scrollFocus: 1 })}
             ref="trackscroll1"
             style={{ overflowY: 'scroll' }}
           >
-            {Array.from({ length: 50 }).map((_, i) => (
-              <div key={i + 1} className={classes.actorBlock}>
-                {i + 1}
-              </div>
+            {test.actors.map((actor, i) => (
+              <ActorBlock
+                key={i}
+                actor={actor}
+                className={classes.actorBlock}
+              />
             ))}
           </div>
         </div>
@@ -135,7 +138,7 @@ class TestEditor extends React.Component {
               width: 50 * tickWidth
             }}
           >
-            {Array.from({ length: 50 }).map((_, i) => (
+            {test.actors.map((_, i) => (
               <div key={i} className={classes.track}>
                 <div className={classes.taskBlock} />
                 <div className={classes.taskBlock} />

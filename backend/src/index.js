@@ -6,6 +6,8 @@ var ROOT_PATH = process.env.ROOT_PATH || './';
 const SCREENPLAY_PATH = ROOT_PATH + 'screenplay';
 const DATA_STORE_FILE = SCREENPLAY_PATH + '/store.json';
 if (!fs.existsSync(SCREENPLAY_PATH)) fs.mkdirSync(SCREENPLAY_PATH);
+if (!fs.existsSync(DATA_STORE_FILE))
+  fs.writeFileSync(DATA_STORE_FILE, JSON.stringify({}));
 const port = 3001;
 
 const store = require('./store/store')(

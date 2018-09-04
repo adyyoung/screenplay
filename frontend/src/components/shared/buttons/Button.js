@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 const styles = theme => ({
   button: {
     height: 25,
-    width:35,
+    width: 35,
     padding: 3,
     backgroundColor: '#424242',
     color: 'white',
@@ -31,9 +31,9 @@ const styles = theme => ({
 });
 class Button extends React.Component {
   render() {
-    const { classes, icon } = this.props;
+    const { classes, icon, onClick } = this.props;
     return (
-      <button className={classes.button}>
+      <button onClick={onClick} className={classes.button}>
         {
           {
             add: <AddIcon className={classes.iconStyle} />
