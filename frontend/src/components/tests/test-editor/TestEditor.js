@@ -107,19 +107,23 @@ const styles = theme => ({
 });
 class TestEditor extends React.Component {
   state = {
-    scrollFocus: 2,
-    selectedTrackIndex: this.props.test.actors.length ? 0 : null
+    selectedTrackIndex: this.props.test.actors.length ? 0 : null,
+    scrollTop: 0
   };
+
   render() {
     const { test, classes } = this.props;
     const { selectedTrackIndex } = this.state;
+
     const handleScroll = ({ target: { scrollTop } }) => {
-      if (this.state.scrollFocus === 1) {
-        this.refs.trackscroll2.scrollTop = scrollTop;
-      } else if (this.state.scrollFocus === 2) {
-        this.refs.trackscroll1.scrollTop = scrollTop;
+      if (scrollTop !== this.state.scrollTop) {
+        this.setState({ scrollTop }, () => {
+          this.refs['trackScroll1'].scrollTop = scrollTop;
+          this.refs['trackScroll2'].scrollTop = scrollTop;
+        });
       }
     };
+
     return (
       <div className={classes.root}>
         <div className={classes.timelineRoot}>
@@ -128,9 +132,8 @@ class TestEditor extends React.Component {
               <AddActor test={test} />
             </div>
             <div
+              ref="trackScroll1"
               onScroll={handleScroll}
-              onMouseOver={() => this.setState({ scrollFocus: 1 })}
-              ref="trackscroll1"
               style={{ overflowY: 'scroll' }}
             >
               {test.actors.map((actor, i) => (
@@ -154,10 +157,8 @@ class TestEditor extends React.Component {
                 </div>
               ))}
             </div>
-
             <div
-              ref="trackscroll2"
-              onMouseOver={() => this.setState({ scrollFocus: 2 })}
+              ref="trackScroll2"
               onScroll={handleScroll}
               style={{
                 paddingLeft: 8,
