@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import AddActor from './components/AddActor';
 import ActorBlock from './components/ActorBlock';
 import TrackContext from './components/TrackContext';
-
+import BlockSelectorContext from './components/BlockSelectorContext';
 const headerHeight = 40;
 const tickWidth = 200;
 const leftColumn = 140;
@@ -115,7 +115,7 @@ class TestEditor extends React.Component {
     selectedTrackIndex: this.props.test.actors.length ? 0 : null,
     selectedTickIndex: null,
     scrollTop: 0,
-    numberOfTick: 20
+    numberOfTick: 12
   };
 
   clearSelection() {
@@ -204,7 +204,7 @@ class TestEditor extends React.Component {
                           className={classes.taskBlock}
                           style={{
                             flex: '1',
-                            backgroundColor: 'rgba(255,255,255,0.5)',
+                            backgroundColor: 'rgba(255,255,255,0.2)',
                             border: '2px solid black'
                           }}
                           onClick={() =>
@@ -235,11 +235,19 @@ class TestEditor extends React.Component {
         </div>
         {selectedTrackIndex !== null && (
           <div className={classes.trackContextRoot}>
-            <TrackContext
-              selectedTickIndex={selectedTickIndex}
-              selectedTrackIndex={selectedTrackIndex}
-              test={test}
-            />
+            {selectedTickIndex !== null ? (
+              <BlockSelectorContext
+                selectedTickIndex={selectedTickIndex}
+                selectedTrackIndex={selectedTrackIndex}
+                test={test}
+              />
+            ) : (
+              <TrackContext
+                selectedTrackIndex={selectedTrackIndex}
+                test={test}
+                onDelete={() => this.clearSelection()}
+              />
+            )}
           </div>
         )}
       </div>

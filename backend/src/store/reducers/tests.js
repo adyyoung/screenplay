@@ -19,6 +19,13 @@ const testReducer = (state = {}, action) => {
         actors: [...state.actors]
       };
     }
+    case 'TEST_DELETE_TRACK': {
+      state.actors.splice(action.trackIndex, 1);
+      return {
+        ...state,
+        actors: state.actors
+      };
+    }
     default:
       return state;
   }
@@ -26,7 +33,8 @@ const testReducer = (state = {}, action) => {
 const testsReducer = (state = {}, action) => {
   switch (action.type) {
     case 'TEST_ADD_ACTOR':
-    case 'TEST_RENAME_TRACK': {
+    case 'TEST_RENAME_TRACK':
+    case 'TEST_DELETE_TRACK': {
       return {
         ...state,
         [action.id]: testReducer(state[action.id], action)

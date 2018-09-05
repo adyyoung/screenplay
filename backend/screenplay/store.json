@@ -108,48 +108,12 @@
       ],
       "actors": [
         {
-          "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Player A"
-        },
-        {
-          "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Player B"
-        },
-        {
-          "actorId": "cjllbwdrw00032la0gsdqp6uq",
-          "trackName": "Player C"
+          "actorId": "cjllby7g300042la01l1of4uw",
+          "trackName": "User 1"
         },
         {
           "actorId": "cjllbuupq00022la0qkays723",
-          "trackName": "Player D"
-        },
-        {
-          "actorId": "cjllbwdrw00032la0gsdqp6uq",
-          "trackName": "Another person"
-        },
-        {
-          "actorId": "cjllby7g300042la01l1of4uw",
-          "trackName": "Mr Robot"
-        },
-        {
-          "actorId": "cjllbwdrw00032la0gsdqp6uq",
-          "trackName": "Track 7"
-        },
-        {
-          "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Track 8"
-        },
-        {
-          "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Track 9"
-        },
-        {
-          "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Track 10"
-        },
-        {
-          "actorId": "cjlob0szk00003h5njen5on5f",
-          "trackName": "Track 11"
+          "trackName": "Track 2"
         }
       ]
     },

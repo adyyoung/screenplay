@@ -23,3 +23,9 @@ export const testRenameTrack = (testId, trackIndex, newName) => ({
   trackIndex,
   newName
 });
+
+export const testDeleteTrack = (testId, trackIndex) => ({
+  type: 'TEST_DELETE_TRACK',
+  id: testId,
+  trackIndex
+});
