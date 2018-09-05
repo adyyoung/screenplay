@@ -199,7 +199,7 @@ class TestEditor extends React.Component {
                 >
                   {Array.from({ length: numberOfTick }).map((_, t) => (
                     <React.Fragment key={t}>
-                      {selectedTickIndex === t && selectedTrackIndex === i ? (
+                      {test.actors[i].ticks[t] ? (
                         <div
                           className={classes.taskBlock}
                           style={{
@@ -213,6 +213,18 @@ class TestEditor extends React.Component {
                               selectedTrackIndex: i
                             })
                           }
+                        >
+                          {test.actors[i].ticks[t].type}
+                        </div>
+                      ) : selectedTickIndex === t &&
+                      selectedTrackIndex === i ? (
+                        <div
+                          className={classes.taskBlock}
+                          style={{
+                            flex: '1',
+                            backgroundColor: 'rgba(255,255,255,0.2)',
+                            border: '1px solid black'
+                          }}
                         />
                       ) : (
                         <div
@@ -226,6 +238,8 @@ class TestEditor extends React.Component {
                           }
                         />
                       )}
+
+                      {}
                     </React.Fragment>
                   ))}
                 </div>

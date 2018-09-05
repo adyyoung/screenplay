@@ -109,11 +109,56 @@
       "actors": [
         {
           "actorId": "cjllby7g300042la01l1of4uw",
-          "trackName": "User 1"
+          "trackName": "User 1 - Bot",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            null,
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
         },
         {
           "actorId": "cjllbuupq00022la0qkays723",
-          "trackName": "Track 2"
+          "trackName": "User 2",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
+        },
+        {
+          "actorId": "cjllbta1l00002la03hf7jtz9",
+          "trackName": "Track 3",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            null,
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
+        },
+        {
+          "actorId": "cjllbta1l00002la03hf7jtz9",
+          "trackName": "Track 4",
+          "ticks": []
+        },
+        {
+          "actorId": "cjlob0szk00003h5njen5on5f",
+          "trackName": "Track 5",
+          "ticks": []
+        },
+        {
+          "actorId": "cjllby7g300042la01l1of4uw",
+          "trackName": "Track 6",
+          "ticks": []
         }
       ]
     },
@@ -128,11 +173,86 @@
       "actors": [
         {
           "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Track 1"
+          "trackName": "Track 1",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            null,
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
         },
         {
           "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Track 2"
+          "trackName": "Track 2",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
+        }
+      ]
+    },
+    "cjlppaxra00003h5rr0kky5wv": {
+      "id": "cjlppaxra00003h5rr0kky5wv",
+      "name": "test",
+      "description": "",
+      "tags": [
+        "qwe"
+      ],
+      "actors": [
+        {
+          "actorId": "cjllbu9yj00012la0oi471d0k",
+          "trackName": "Player B",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
+        },
+        {
+          "actorId": "cjllbta1l00002la03hf7jtz9",
+          "trackName": "Player A",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
+        },
+        {
+          "actorId": "cjllbwdrw00032la0gsdqp6uq",
+          "trackName": "Track 3",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
         }
       ]
     }

@@ -2,8 +2,8 @@ import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../../Context';
-import Avatars from '../../../images/avatars';
-import { testRenameTrack } from '../../../../actions/tests';
+import { testAddBlock } from '../../../../actions/tests';
+import Button from '../../../shared/buttons/Button';
 const styles = theme => ({
   root: {
     flex: 1,
@@ -33,25 +33,11 @@ const styles = theme => ({
   }
 });
 class BlockSelectorContext extends React.Component {
-  state = {
-    trackName: this.props.test.actors[this.props.selectedTrackIndex].trackName
-  };
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      trackName: nextProps.test.actors[nextProps.selectedTrackIndex].trackName
-    });
-  }
   render() {
-    const { classes, selectedTrackIndex, test } = this.props;
+    const { classes, selectedTrackIndex, selectedTickIndex, test } = this.props;
     return (
       <Context>
         {({ state, dispatch }) => {
-          const actor = state.actors[test.actors[selectedTrackIndex].actorId];
-          const track = test.actors[selectedTrackIndex];
-          const renameTrack = () =>
-            dispatch(
-              testRenameTrack(test.id, selectedTrackIndex, this.state.trackName)
-            );
           return (
             <div className={classes.root}>
               <div className={classes.toolbar}>
@@ -65,10 +51,8 @@ class BlockSelectorContext extends React.Component {
                     width: 200,
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',
                     backgroundColor: '#616161',
-                    padding: 8,
-                    textAlign: 'center'
+                    padding: 8
                   }}
                 >
                   <div>options</div>
@@ -81,7 +65,20 @@ class BlockSelectorContext extends React.Component {
                     padding: 8
                   }}
                 >
-                  <div>test</div>
+                  <Button
+                    onClick={() =>
+                      dispatch(
+                        testAddBlock(
+                          test.id,
+                          selectedTrackIndex,
+                          selectedTickIndex,
+                          'LAUNCH_BROWSER'
+                        )
+                      )
+                    }
+                  >
+                    Open Chrome
+                  </Button>
                 </div>
               </div>
             </div>

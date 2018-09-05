@@ -7,7 +7,8 @@ const testReducer = (state = {}, action) => {
           ...(state.actors || []),
           {
             actorId: action.actorId,
-            trackName: `Track ${state.actors.length + 1}`
+            trackName: `Track ${state.actors.length + 1}`,
+            ticks: []
           }
         ]
       };
@@ -26,6 +27,16 @@ const testReducer = (state = {}, action) => {
         actors: state.actors
       };
     }
+    case 'TEST_ADD_BLOCK': {
+      const ticks = state.actors[action.trackIndex].ticks || [];
+      ticks[action.tickIndex] = {
+        type: action.blockType
+      };
+      return {
+        ...state,
+        actors: [...state.actors]
+      };
+    }
     default:
       return state;
   }
@@ -34,7 +45,8 @@ const testsReducer = (state = {}, action) => {
   switch (action.type) {
     case 'TEST_ADD_ACTOR':
     case 'TEST_RENAME_TRACK':
-    case 'TEST_DELETE_TRACK': {
+    case 'TEST_DELETE_TRACK':
+    case 'TEST_ADD_BLOCK': {
       return {
         ...state,
         [action.id]: testReducer(state[action.id], action)

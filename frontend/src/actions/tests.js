@@ -29,3 +29,11 @@ export const testDeleteTrack = (testId, trackIndex) => ({
   id: testId,
   trackIndex
 });
+
+export const testAddBlock = (testId, trackIndex, tickIndex, blockType) => ({
+  type: 'TEST_ADD_BLOCK',
+  id: testId,
+  trackIndex,
+  tickIndex,
+  blockType
+});
