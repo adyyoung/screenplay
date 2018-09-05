@@ -27,7 +27,7 @@ const styles = theme => ({
   },
   trackContextRoot: {
     display: 'flex',
-    height: 200,
+    height: 300,
     margin: 4,
     marginTop: 0,
     borderRadius: 3,
@@ -92,28 +92,42 @@ const styles = theme => ({
     display: 'flex'
   },
   taskBlock: {
-    marginLeft: 0,
+    marginLeft: 1,
     marginTop: 0,
     margonBottom: 2,
     height: trackHieght - 1,
-    border: '1px solid black',
-    backgroundColor: '#3c7a38',
     color: 'white',
-    padding: 6,
+    // padding: 6,
+    display: 'flex',
+    overflow: 'hidden',
     borderRadius: 8,
-    width: tickWidth,
-    fontSize: 12
+    flex: '1',
+    border: '1px solid transparent',
+    fontSize: 12,
+    '&:hover': {
+      backgroundColor: 'rgba(0,0,255,0.1)',
+      borderColor: 'rgba(0,0,0,0.9)'
+    }
   }
 });
 class TestEditor extends React.Component {
   state = {
     selectedTrackIndex: this.props.test.actors.length ? 0 : null,
-    scrollTop: 0
+    selectedTickIndex: null,
+    scrollTop: 0,
+    numberOfTick: 20
   };
+
+  clearSelection() {
+    this.setState({
+      selectedTrackIndex: null,
+      selectedTickIndex: null
+    });
+  }
 
   render() {
     const { test, classes } = this.props;
-    const { selectedTrackIndex } = this.state;
+    const { selectedTrackIndex, selectedTickIndex, numberOfTick } = this.state;
 
     const handleScroll = ({ target: { scrollTop } }) => {
       if (scrollTop !== this.state.scrollTop) {
@@ -128,7 +142,10 @@ class TestEditor extends React.Component {
       <div className={classes.root}>
         <div className={classes.timelineRoot}>
           <div className={classes.leftCol}>
-            <div className={classes.colHeader1}>
+            <div
+              className={classes.colHeader1}
+              onClick={this.clearSelection.bind(this)}
+            >
               <AddActor test={test} />
             </div>
             <div
@@ -139,7 +156,12 @@ class TestEditor extends React.Component {
               {test.actors.map((actor, i) => (
                 <ActorBlock
                   selected={selectedTrackIndex === i}
-                  onSelect={() => this.setState({ selectedTrackIndex: i })}
+                  onSelect={() =>
+                    this.setState({
+                      selectedTrackIndex: i,
+                      selectedTickIndex: null
+                    })
+                  }
                   key={i}
                   index={i}
                   testId={test.id}
@@ -151,7 +173,7 @@ class TestEditor extends React.Component {
           </div>
           <div className={classes.rightCol}>
             <div className={classes.colHeader2}>
-              {Array.from({ length: 50 }).map((_, i) => (
+              {Array.from({ length: numberOfTick }).map((_, i) => (
                 <div key={i + 1} className={classes.tick}>
                   {i + 1}
                 </div>
@@ -161,14 +183,51 @@ class TestEditor extends React.Component {
               ref="trackScroll2"
               onScroll={handleScroll}
               style={{
-                paddingLeft: 8,
+                marginLeft: 8,
                 overflowY: 'scroll',
-                width: 50 * tickWidth
+                width: numberOfTick * tickWidth
               }}
             >
               {test.actors.map((_, i) => (
-                <div key={i} className={classes.track}>
-                  <div className={classes.taskBlock} />
+                <div
+                  key={i}
+                  className={classes.track}
+                  style={{
+                    backgroundColor:
+                      selectedTrackIndex === i && 'rgba(255,255,255,0.03)'
+                  }}
+                >
+                  {Array.from({ length: numberOfTick }).map((_, t) => (
+                    <React.Fragment key={t}>
+                      {selectedTickIndex === t && selectedTrackIndex === i ? (
+                        <div
+                          className={classes.taskBlock}
+                          style={{
+                            flex: '1',
+                            backgroundColor: 'rgba(255,255,255,0.5)',
+                            border: '2px solid black'
+                          }}
+                          onClick={() =>
+                            this.setState({
+                              selectedTickIndex: t,
+                              selectedTrackIndex: i
+                            })
+                          }
+                        />
+                      ) : (
+                        <div
+                          className={classes.taskBlock}
+                          style={{ flex: '1' }}
+                          onClick={() =>
+                            this.setState({
+                              selectedTickIndex: t,
+                              selectedTrackIndex: i
+                            })
+                          }
+                        />
+                      )}
+                    </React.Fragment>
+                  ))}
                 </div>
               ))}
             </div>
@@ -176,7 +235,11 @@ class TestEditor extends React.Component {
         </div>
         {selectedTrackIndex !== null && (
           <div className={classes.trackContextRoot}>
-            <TrackContext selectedTrackIndex={selectedTrackIndex} test={test} />
+            <TrackContext
+              selectedTickIndex={selectedTickIndex}
+              selectedTrackIndex={selectedTrackIndex}
+              test={test}
+            />
           </div>
         )}
       </div>
