@@ -108,56 +108,34 @@
       ],
       "actors": [
         {
-          "actorId": "cjllby7g300042la01l1of4uw",
-          "trackName": "User 1 - Bot",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            null,
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbuupq00022la0qkays723",
-          "trackName": "User 2",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Track 3",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            null,
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Track 4",
-          "ticks": []
-        },
-        {
           "actorId": "cjlob0szk00003h5njen5on5f",
-          "trackName": "Track 5",
-          "ticks": []
+          "trackName": "Astronaut",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            null,
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
         },
         {
-          "actorId": "cjllby7g300042la01l1of4uw",
-          "trackName": "Track 6",
+          "actorId": "cjllbta1l00002la03hf7jtz9",
+          "trackName": "Jain",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            null,
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
+        },
+        {
+          "actorId": "cjllbwdrw00032la0gsdqp6uq",
+          "trackName": "Caveman!!",
           "ticks": []
         }
       ]

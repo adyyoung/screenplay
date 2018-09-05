@@ -5,6 +5,7 @@ import AddActor from './components/AddActor';
 import ActorBlock from './components/ActorBlock';
 import TrackContext from './components/TrackContext';
 import BlockSelectorContext from './components/BlockSelectorContext';
+import TimelineBlock from './components/TimelineBlock';
 const headerHeight = 40;
 const tickWidth = 200;
 const leftColumn = 140;
@@ -97,7 +98,6 @@ const styles = theme => ({
     margonBottom: 2,
     height: trackHieght - 1,
     color: 'white',
-    // padding: 6,
     display: 'flex',
     overflow: 'hidden',
     borderRadius: 8,
@@ -200,25 +200,25 @@ class TestEditor extends React.Component {
                   {Array.from({ length: numberOfTick }).map((_, t) => (
                     <React.Fragment key={t}>
                       {test.actors[i].ticks[t] ? (
-                        <div
-                          className={classes.taskBlock}
-                          style={{
-                            flex: '1',
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            border: '2px solid black'
-                          }}
-                          onClick={() =>
+                        <TimelineBlock
+                          selected={
+                            selectedTickIndex === t && selectedTrackIndex === i
+                          }
+                          onSelect={() =>
                             this.setState({
                               selectedTickIndex: t,
                               selectedTrackIndex: i
                             })
                           }
-                        >
-                          {test.actors[i].ticks[t].type}
-                        </div>
+                          trackIndex={i}
+                          tickIndex={t}
+                          block={test.actors[i].ticks[t]}
+                          className={classes.taskBlock}
+                        />
                       ) : selectedTickIndex === t &&
                       selectedTrackIndex === i ? (
                         <div
+                          // selected empty block
                           className={classes.taskBlock}
                           style={{
                             flex: '1',
@@ -228,6 +228,7 @@ class TestEditor extends React.Component {
                         />
                       ) : (
                         <div
+                          //  empty block
                           className={classes.taskBlock}
                           style={{ flex: '1' }}
                           onClick={() =>
