@@ -116,7 +116,7 @@ class TestEditor extends React.Component {
     selectedTrackIndex: this.props.test.actors.length ? 0 : null,
     selectedTickIndex: null,
     scrollTop: 0,
-    numberOfTick: 12
+    numberOfTick: 0
   };
 
   clearSelection() {
@@ -124,6 +124,19 @@ class TestEditor extends React.Component {
       selectedTrackIndex: null,
       selectedTickIndex: null
     });
+  }
+  componentDidMount() {
+    this.updateNumberOfTicks();
+  }
+  updateNumberOfTicks() {
+    const expectedTicks =
+      5 + Math.max(...this.props.test.actors.map(a => a.ticks.length));
+    if (expectedTicks !== this.state.numberOfTick) {
+      this.setState({ numberOfTick: expectedTicks });
+    }
+  }
+  componentDidUpdate({ test }, { numberOfTick }) {
+    this.updateNumberOfTicks();
   }
 
   render() {

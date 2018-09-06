@@ -28,13 +28,21 @@ class BlockForm extends React.Component {
                         <td>
                           {{
                             OPTIONS: () => (
-                              <select value={value}>
+                              <select value={value} onChange={() => {}}>
                                 {prop.options.map(o => (
-                                  <option value={o.value}>{o.label}</option>
+                                  <option key={o.value} value={o.value}>
+                                    {o.label}
+                                  </option>
                                 ))}
                               </select>
                             ),
-                            TEXT: () => <input type="text" value={value} />
+                            TEXT: () => (
+                              <input
+                                type="text"
+                                onChange={() => {}}
+                                value={value}
+                              />
+                            )
                           }[prop.type]()}
                         </td>
                       </tr>

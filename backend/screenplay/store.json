@@ -108,7 +108,67 @@
         {
           "actorId": "cjllbta1l00002la03hf7jtz9",
           "trackName": "Track 1",
-          "ticks": []
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
+            },
+            null,
+            {
+              "type": "MAXIMIZE_WINDOW",
+              "properties": []
+            },
+            {
+              "type": "ENTER_TEXT",
+              "properties": [
+                {
+                  "key": "LOCATOR_STRATEGY",
+                  "value": "CSS"
+                },
+                {
+                  "key": "LOCATOR",
+                  "value": ""
+                },
+                {
+                  "key": "KEYS",
+                  "value": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "actorId": "cjllbu9yj00012la0oi471d0k",
+          "trackName": "Track 3",
+          "ticks": [
+            null,
+            {
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
+            },
+            {
+              "type": "MAXIMIZE_WINDOW",
+              "properties": []
+            }
+          ]
         }
       ]
     }

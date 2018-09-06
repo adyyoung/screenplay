@@ -75,7 +75,7 @@ class BlockSelectorContext extends React.Component {
                   }}
                 >
                   {Object.entries(types).map(([key, type]) => (
-                    <Button onClick={() => dispatch(addBlock(key))}>
+                    <Button key={key} onClick={() => dispatch(addBlock(key))}>
                       {type.label}
                     </Button>
                   ))}
