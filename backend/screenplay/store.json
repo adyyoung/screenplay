@@ -99,154 +99,54 @@
     }
   },
   "tests": {
-    "cjllffmiv0001koa09p2wtrg3": {
-      "id": "cjllffmiv0001koa09p2wtrg3",
-      "name": "Sign in to email account",
-      "description": "Should be able to sign in to email account",
-      "tags": [
-        "gmail"
-      ],
-      "actors": [
-        {
-          "actorId": "cjlob0szk00003h5njen5on5f",
-          "trackName": "Astronaut",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "CLOSE_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Jain",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "CLOSE_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            null,
-            {
-              "type": "CLOSE_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbwdrw00032la0gsdqp6uq",
-          "trackName": "Caveman!!",
-          "ticks": [
-            {
-              "type": "CLOSE_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        }
-      ]
-    },
-    "cjllfi48u0003koa0ughe8qwe": {
-      "id": "cjllfi48u0003koa0ughe8qwe",
-      "name": "Go to home page and click about us",
-      "description": "Should be able to go to home page and click about us",
-      "tags": [
-        "test",
-        "qwe"
-      ],
+    "cjlqt7pqf00003h5rpwphjiqh": {
+      "id": "cjlqt7pqf00003h5rpwphjiqh",
+      "name": "test",
+      "description": "",
+      "tags": [],
       "actors": [
         {
           "actorId": "cjllbta1l00002la03hf7jtz9",
           "trackName": "Track 1",
           "ticks": [
             {
-              "type": "LAUNCH_BROWSER"
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
             },
             {
-              "type": "LAUNCH_BROWSER"
-            },
-            null,
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Track 2",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
+              "type": "NAVIGATE_TO_URL",
+              "properties": [
+                {
+                  "key": "URL",
+                  "value": "http://example.com"
+                }
+              ]
             },
             {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        }
-      ]
-    },
-    "cjlppaxra00003h5rr0kky5wv": {
-      "id": "cjlppaxra00003h5rr0kky5wv",
-      "name": "test",
-      "description": "",
-      "tags": [
-        "qwe"
-      ],
-      "actors": [
-        {
-          "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Player B",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Player A",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            }
-          ]
-        },
-        {
-          "actorId": "cjllbwdrw00032la0gsdqp6uq",
-          "trackName": "Track 3",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
-            },
-            {
-              "type": "LAUNCH_BROWSER"
+              "type": "ENTER_TEXT",
+              "properties": [
+                {
+                  "key": "LOCATOR_STRATEGY",
+                  "value": "CSS"
+                },
+                {
+                  "key": "LOCATOR",
+                  "value": ""
+                },
+                {
+                  "key": "KEYS",
+                  "value": ""
+                }
+              ]
             }
           ]
         }

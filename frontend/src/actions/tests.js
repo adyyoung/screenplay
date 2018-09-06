@@ -30,10 +30,17 @@ export const testDeleteTrack = (testId, trackIndex) => ({
   trackIndex
 });
 
-export const testAddBlock = (testId, trackIndex, tickIndex, blockType) => ({
+export const testAddBlock = (
+  testId,
+  trackIndex,
+  tickIndex,
+  blockType,
+  properties
+) => ({
   type: 'TEST_ADD_BLOCK',
   id: testId,
   trackIndex,
   tickIndex,
-  blockType
+  blockType,
+  properties
 });

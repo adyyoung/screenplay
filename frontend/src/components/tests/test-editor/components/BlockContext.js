@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import Context from '../../../Context';
 import { testAddBlock } from '../../../../actions/tests';
 import Button from '../../../shared/buttons/Button';
+import BlockForm from './block-context/BlockForm';
 const styles = theme => ({
   root: {
     flex: 1,
@@ -32,7 +33,7 @@ const styles = theme => ({
     backgroundColor: '#616161'
   }
 });
-class BlockSelectorContext extends React.Component {
+class BlockContext extends React.Component {
   render() {
     const { classes, selectedTrackIndex, selectedTickIndex, test } = this.props;
     const block = test.actors[selectedTrackIndex].ticks[selectedTickIndex];
@@ -56,7 +57,7 @@ class BlockSelectorContext extends React.Component {
                     padding: 8
                   }}
                 >
-                  <div>{''}</div>
+                  <pre>{JSON.stringify(block, 2, 2)}</pre>
                 </div>
                 <div
                   style={{
@@ -66,7 +67,12 @@ class BlockSelectorContext extends React.Component {
                     padding: 8
                   }}
                 >
-                  {block.type}
+                  <BlockForm
+                    block={block}
+                    selectedTrackIndex={selectedTrackIndex}
+                    selectedTickIndex={selectedTickIndex}
+                    test={test}
+                  />
                 </div>
               </div>
             </div>
@@ -77,4 +83,4 @@ class BlockSelectorContext extends React.Component {
   }
 }
 
-export default compose(withStyles(styles))(BlockSelectorContext);
+export default compose(withStyles(styles))(BlockContext);

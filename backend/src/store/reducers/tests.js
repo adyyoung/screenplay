@@ -30,7 +30,8 @@ const testReducer = (state = {}, action) => {
     case 'TEST_ADD_BLOCK': {
       const ticks = state.actors[action.trackIndex].ticks || [];
       ticks[action.tickIndex] = {
-        type: action.blockType
+        type: action.blockType,
+        properties: action.properties
       };
       return {
         ...state,

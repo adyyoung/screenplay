@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import Context from '../../../Context';
 import { testAddBlock } from '../../../../actions/tests';
 import Button from '../../../shared/buttons/Button';
+import types from './block-context/types';
 const styles = theme => ({
   root: {
     flex: 1,
@@ -35,6 +36,14 @@ const styles = theme => ({
 class BlockSelectorContext extends React.Component {
   render() {
     const { classes, selectedTrackIndex, selectedTickIndex, test } = this.props;
+    const addBlock = type =>
+      testAddBlock(
+        test.id,
+        selectedTrackIndex,
+        selectedTickIndex,
+        type,
+        types[type].properties.map(p => ({ key: p.key, value: p.defaultValue }))
+      );
     return (
       <Context>
         {({ state, dispatch }) => {
@@ -65,34 +74,11 @@ class BlockSelectorContext extends React.Component {
                     padding: 8
                   }}
                 >
-                  <Button
-                    onClick={() =>
-                      dispatch(
-                        testAddBlock(
-                          test.id,
-                          selectedTrackIndex,
-                          selectedTickIndex,
-                          'LAUNCH_BROWSER'
-                        )
-                      )
-                    }
-                  >
-                    Launch browser
-                  </Button>
-                  <Button
-                    onClick={() =>
-                      dispatch(
-                        testAddBlock(
-                          test.id,
-                          selectedTrackIndex,
-                          selectedTickIndex,
-                          'CLOSE_BROWSER'
-                        )
-                      )
-                    }
-                  >
-                    Close browser
-                  </Button>
+                  {Object.entries(types).map(([key, type]) => (
+                    <Button onClick={() => dispatch(addBlock(key))}>
+                      {type.label}
+                    </Button>
+                  ))}
                 </div>
               </div>
             </div>

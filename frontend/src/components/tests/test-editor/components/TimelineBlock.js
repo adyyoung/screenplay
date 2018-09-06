@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../../Context';
 import { testRenameTrack } from '../../../../actions/tests';
-
+import types from './block-context/types';
 const styles = theme => ({});
 class TimelineBlock extends React.Component {
   render() {
@@ -15,9 +15,7 @@ class TimelineBlock extends React.Component {
       onSelect,
       selected
     } = this.props;
-    const component = {
-      LAUNCH_BROWSER: () => <div style={{ margin: 8 }}>Launch browser</div>
-    }[block.type];
+
     return (
       <Context>
         {({ state, dispatch }) => {
@@ -32,11 +30,7 @@ class TimelineBlock extends React.Component {
               }}
               onClick={onSelect}
             >
-              {component ? (
-                component()
-              ) : (
-                <div style={{ margin: 8 }}>{block.type}</div>
-              )}
+              <div style={{ margin: 8 }}>{types[block.type].label}</div>
             </div>
           );
         }}
