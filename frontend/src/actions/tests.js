@@ -44,3 +44,10 @@ export const testAddBlock = (
   blockType,
   properties
 });
+
+export const deleteBlock = (testId, trackIndex, tickIndex) => ({
+  type: 'TEST_DELETE_BLOCK',
+  id: testId,
+  trackIndex,
+  tickIndex
+});

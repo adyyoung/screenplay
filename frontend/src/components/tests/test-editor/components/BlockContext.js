@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../../Context';
-import { testAddBlock } from '../../../../actions/tests';
+import { deleteBlock } from '../../../../actions/tests';
 import Button from '../../../shared/buttons/Button';
 import BlockForm from './block-context/BlockForm';
 const styles = theme => ({
@@ -17,7 +17,7 @@ const styles = theme => ({
     backgroundColor: '#484848',
     padding: 8,
     color: 'white',
-    height: 30
+    height: 40
   },
   toolbarLeft: {
     flex: 1
@@ -45,7 +45,22 @@ class BlockContext extends React.Component {
               <div className={classes.toolbar}>
                 <div className={classes.toolbarLeft}> {''}</div>
                 <div className={classes.toolbarCenter}>{''}</div>
-                <div className={classes.toolbarRight}>{''}</div>
+                <div className={classes.toolbarRight}>
+                  <Button
+                    onClick={() => {
+                      window.confirm('Delete block?') &&
+                        dispatch(
+                          deleteBlock(
+                            test.id,
+                            selectedTrackIndex,
+                            selectedTickIndex
+                          )
+                        );
+                    }}
+                  >
+                    Delete block
+                  </Button>
+                </div>
               </div>
               <div className={classes.content}>
                 <div

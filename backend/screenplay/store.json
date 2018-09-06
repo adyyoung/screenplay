@@ -108,47 +108,7 @@
         {
           "actorId": "cjllbta1l00002la03hf7jtz9",
           "trackName": "Track 1",
-          "ticks": [
-            {
-              "type": "LAUNCH_BROWSER",
-              "properties": [
-                {
-                  "key": "BROWSER",
-                  "value": "CHROME"
-                },
-                {
-                  "key": "TIMEOUT",
-                  "value": "5000"
-                }
-              ]
-            },
-            {
-              "type": "NAVIGATE_TO_URL",
-              "properties": [
-                {
-                  "key": "URL",
-                  "value": "http://example.com"
-                }
-              ]
-            },
-            {
-              "type": "ENTER_TEXT",
-              "properties": [
-                {
-                  "key": "LOCATOR_STRATEGY",
-                  "value": "CSS"
-                },
-                {
-                  "key": "LOCATOR",
-                  "value": ""
-                },
-                {
-                  "key": "KEYS",
-                  "value": ""
-                }
-              ]
-            }
-          ]
+          "ticks": []
         }
       ]
     }
