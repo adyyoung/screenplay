@@ -35,6 +35,7 @@ const styles = theme => ({
 class BlockSelectorContext extends React.Component {
   render() {
     const { classes, selectedTrackIndex, selectedTickIndex, test } = this.props;
+    const block = test.actors[selectedTrackIndex].ticks[selectedTickIndex];
     return (
       <Context>
         {({ state, dispatch }) => {
@@ -55,7 +56,7 @@ class BlockSelectorContext extends React.Component {
                     padding: 8
                   }}
                 >
-                  <div>options</div>
+                  <div>{''}</div>
                 </div>
                 <div
                   style={{
@@ -65,34 +66,7 @@ class BlockSelectorContext extends React.Component {
                     padding: 8
                   }}
                 >
-                  <Button
-                    onClick={() =>
-                      dispatch(
-                        testAddBlock(
-                          test.id,
-                          selectedTrackIndex,
-                          selectedTickIndex,
-                          'LAUNCH_BROWSER'
-                        )
-                      )
-                    }
-                  >
-                    Launch browser
-                  </Button>
-                  <Button
-                    onClick={() =>
-                      dispatch(
-                        testAddBlock(
-                          test.id,
-                          selectedTrackIndex,
-                          selectedTickIndex,
-                          'CLOSE_BROWSER'
-                        )
-                      )
-                    }
-                  >
-                    Close browser
-                  </Button>
+                  {block.type}
                 </div>
               </div>
             </div>

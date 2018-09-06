@@ -15,6 +15,9 @@ class TimelineBlock extends React.Component {
       onSelect,
       selected
     } = this.props;
+    const component = {
+      LAUNCH_BROWSER: () => <div style={{ margin: 8 }}>Launch browser</div>
+    }[block.type];
     return (
       <Context>
         {({ state, dispatch }) => {
@@ -29,9 +32,11 @@ class TimelineBlock extends React.Component {
               }}
               onClick={onSelect}
             >
-              <div style={{ margin: 8 }}>
-                block {block.type} {trackIndex},{tickIndex}
-              </div>
+              {component ? (
+                component()
+              ) : (
+                <div style={{ margin: 8 }}>{block.type}</div>
+              )}
             </div>
           );
         }}

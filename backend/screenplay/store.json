@@ -114,7 +114,9 @@
             {
               "type": "LAUNCH_BROWSER"
             },
-            null,
+            {
+              "type": "CLOSE_BROWSER"
+            },
             {
               "type": "LAUNCH_BROWSER"
             }
@@ -127,16 +129,32 @@
             {
               "type": "LAUNCH_BROWSER"
             },
-            null,
+            {
+              "type": "CLOSE_BROWSER"
+            },
             {
               "type": "LAUNCH_BROWSER"
+            },
+            null,
+            {
+              "type": "CLOSE_BROWSER"
             }
           ]
         },
         {
           "actorId": "cjllbwdrw00032la0gsdqp6uq",
           "trackName": "Caveman!!",
-          "ticks": []
+          "ticks": [
+            {
+              "type": "CLOSE_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            },
+            {
+              "type": "LAUNCH_BROWSER"
+            }
+          ]
         }
       ]
     },

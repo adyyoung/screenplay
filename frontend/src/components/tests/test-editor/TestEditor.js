@@ -6,6 +6,7 @@ import ActorBlock from './components/ActorBlock';
 import TrackContext from './components/TrackContext';
 import BlockSelectorContext from './components/BlockSelectorContext';
 import TimelineBlock from './components/TimelineBlock';
+import BlockContext from './components/BlockContext';
 const headerHeight = 40;
 const tickWidth = 200;
 const leftColumn = 140;
@@ -251,11 +252,21 @@ class TestEditor extends React.Component {
         {selectedTrackIndex !== null && (
           <div className={classes.trackContextRoot}>
             {selectedTickIndex !== null ? (
-              <BlockSelectorContext
-                selectedTickIndex={selectedTickIndex}
-                selectedTrackIndex={selectedTrackIndex}
-                test={test}
-              />
+              test.actors[selectedTrackIndex].ticks[selectedTickIndex] ? (
+                <BlockContext
+                  selectedTickIndex={selectedTickIndex}
+                  selectedTrackIndex={selectedTrackIndex}
+                  test={test}
+                >
+                  block option
+                </BlockContext>
+              ) : (
+                <BlockSelectorContext
+                  selectedTickIndex={selectedTickIndex}
+                  selectedTrackIndex={selectedTrackIndex}
+                  test={test}
+                />
+              )
             ) : (
               <TrackContext
                 selectedTrackIndex={selectedTrackIndex}
