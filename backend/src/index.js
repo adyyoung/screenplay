@@ -3,14 +3,14 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 var ROOT_PATH = process.env.ROOT_PATH || './';
-const SCREENPLAY_PATH = ROOT_PATH + 'screenplay';
-const DATA_STORE_FILE = SCREENPLAY_PATH + '/store.json';
-if (!fs.existsSync(SCREENPLAY_PATH)) fs.mkdirSync(SCREENPLAY_PATH);
+const SCREENPLAY_CACHE_PATH = ROOT_PATH + '.screenplay';
+const DATA_STORE_FILE = ROOT_PATH + '/screenplay.json';
+if (!fs.existsSync(SCREENPLAY_CACHE_PATH)) fs.mkdirSync(SCREENPLAY_CACHE_PATH);
 if (!fs.existsSync(DATA_STORE_FILE))
   fs.writeFileSync(DATA_STORE_FILE, JSON.stringify({}));
 const port = 3001;
 
-const store = require('./store/store')(
+let store = require('./store/store')(
   JSON.parse(fs.readFileSync(DATA_STORE_FILE))
 );
 
@@ -32,16 +32,12 @@ io.on('connection', socket => {
     }
   });
 });
+
 store.subscribe(async () => {
   emitState(io);
-  console.log();
-  fs.writeFile(
-    SCREENPLAY_PATH + '/store.json',
-    JSON.stringify(store.getState(), 2, 2),
-    err => {
-      if (err) return console.log(err);
-    }
-  );
+  fs.writeFile(DATA_STORE_FILE, JSON.stringify(store.getState(), 2, 2), err => {
+    if (err) return console.log(err);
+  });
 });
 
 http.listen(port, function() {

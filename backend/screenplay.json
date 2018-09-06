@@ -1,0 +1,80 @@
+{
+  "actors": {
+    "cjlqz1in300023h5r956s2krd": {
+      "id": "cjlqz1in300023h5r956s2krd",
+      "name": "test",
+      "description": "",
+      "avatarId": "burglar",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": ""
+        },
+        {
+          "key": "password",
+          "value": ""
+        }
+      ]
+    }
+  },
+  "tests": {
+    "cjlqz1mil00033h5rujrryab7": {
+      "id": "cjlqz1mil00033h5rujrryab7",
+      "name": "test",
+      "description": "",
+      "tags": [],
+      "actors": [
+        {
+          "actorId": "cjlqz1in300023h5r956s2krd",
+          "trackName": "Track 1",
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
+            },
+            {
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
+            },
+            {
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "actorId": "cjlqz1in300023h5r956s2krd",
+          "trackName": "Track 2",
+          "ticks": []
+        }
+      ]
+    }
+  }
+}
