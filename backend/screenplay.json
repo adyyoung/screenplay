@@ -1,10 +1,10 @@
 {
   "actors": {
-    "cjlqz1in300023h5r956s2krd": {
-      "id": "cjlqz1in300023h5r956s2krd",
-      "name": "test",
+    "cjlr4isv700003h5rmpxtxpfc": {
+      "id": "cjlr4isv700003h5rmpxtxpfc",
+      "name": "Ady Young",
       "description": "",
-      "avatarId": "burglar",
+      "avatarId": "caveman",
       "customAttributes": [
         {
           "key": "user_name",
@@ -18,15 +18,15 @@
     }
   },
   "tests": {
-    "cjlqz1mil00033h5rujrryab7": {
-      "id": "cjlqz1mil00033h5rujrryab7",
-      "name": "test",
+    "cjlr4rdl300003h5r4jaz4vbk": {
+      "id": "cjlr4rdl300003h5r4jaz4vbk",
+      "name": "sdf",
       "description": "",
       "tags": [],
       "actors": [
         {
-          "actorId": "cjlqz1in300023h5r956s2krd",
-          "trackName": "ewrwerwer",
+          "actorId": "cjlr4isv700003h5rmpxtxpfc",
+          "trackName": "Track 1",
           "ticks": [
             {
               "type": "LAUNCH_BROWSER",
@@ -41,68 +41,60 @@
                 }
               ]
             },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "actorId": "cjlqz1in300023h5r956s2krd",
-          "trackName": "qwe",
-          "ticks": [
             {
-              "type": "LAUNCH_BROWSER",
+              "type": "NAVIGATE_TO_URL",
               "properties": [
                 {
-                  "key": "BROWSER",
-                  "value": "CHROME"
-                },
-                {
-                  "key": "TIMEOUT",
-                  "value": "5000"
+                  "key": "URL",
+                  "value": "http://example.com"
                 }
               ]
             },
-            null,
-            null,
-            null
-          ]
-        },
-        {
-          "actorId": "cjlqz1in300023h5r956s2krd",
-          "trackName": "Track 3",
-          "ticks": [
             {
-              "type": "LAUNCH_BROWSER",
+              "type": "ENTER_TEXT",
               "properties": [
                 {
-                  "key": "BROWSER",
-                  "value": "CHROME"
+                  "key": "SPECIAL_LOCATOR",
+                  "value": {
+                    "strategy": "XPATH",
+                    "locator": "asd",
+                    "override": false
+                  }
                 },
                 {
-                  "key": "TIMEOUT",
-                  "value": "wqeqwe"
+                  "key": "KEYS",
+                  "value": "asdqwe"
+                }
+              ]
+            },
+            {
+              "type": "ENTER_TEXT",
+              "properties": [
+                {
+                  "key": "SPECIAL_LOCATOR",
+                  "value": {
+                    "strategy": "CSS",
+                    "locator": "qweqwe",
+                    "override": false
+                  }
+                },
+                {
+                  "key": "KEYS",
+                  "value": "qweqwe"
                 }
               ]
             }
           ]
         },
         {
-          "actorId": "cjlqz1in300023h5r956s2krd",
-          "trackName": "Track 4",
+          "actorId": "cjlr4isv700003h5rmpxtxpfc",
+          "trackName": "Track 2",
           "ticks": [
+            null,
+            null,
+            null,
             null
           ]
-        },
-        {
-          "actorId": "cjlqz1in300023h5r956s2krd",
-          "trackName": "Track 5",
-          "ticks": []
         }
       ]
     }

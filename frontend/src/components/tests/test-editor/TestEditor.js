@@ -130,8 +130,11 @@ class TestEditor extends React.Component {
     this.updateNumberOfTicks();
   }
   updateNumberOfTicks() {
-    const expectedTicks =
-      5 + Math.max(...this.props.test.actors.map(a => a.ticks.length));
+    const baseTicks =
+      this.props.test.actors.length > 0
+        ? Math.max(...this.props.test.actors.map(a => a.ticks.length))
+        : 0;
+    const expectedTicks = 5 + baseTicks;
     if (expectedTicks !== this.state.numberOfTick) {
       this.setState({ numberOfTick: expectedTicks });
     }
@@ -274,9 +277,7 @@ class TestEditor extends React.Component {
                   selectedTickIndex={selectedTickIndex}
                   selectedTrackIndex={selectedTrackIndex}
                   test={test}
-                >
-                  block option
-                </BlockContext>
+                />
               ) : (
                 <BlockSelectorContext
                   key={selectedTickIndex + ',' + selectedTrackIndex}

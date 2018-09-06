@@ -12,7 +12,12 @@ const text = (key, label, defaultValue) => ({
   label,
   defaultValue
 });
-
+const locator = (key, label, defaultValue) => ({
+  type: 'LOCATOR',
+  key,
+  label,
+  defaultValue
+});
 export default {
   LAUNCH_BROWSER: {
     label: 'Open browser',
@@ -44,13 +49,7 @@ export default {
   ENTER_TEXT: {
     label: 'Enter text',
     properties: [
-      options(
-        'LOCATOR_STRATEGY',
-        'Locator strategy',
-        [{ label: 'XPath', value: 'XPATH' }, { label: 'CSS', value: 'CSS' }],
-        'CSS'
-      ),
-      text('LOCATOR', 'Locator', ''),
+      locator('SPECIAL_LOCATOR', 'Locator', { strategy: 'XPATH', locator: '' }),
       text('KEYS', 'Text', '')
     ]
   },

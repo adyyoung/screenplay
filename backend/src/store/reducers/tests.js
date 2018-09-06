@@ -52,8 +52,13 @@ const testReducer = (state = {}, action) => {
     case 'TEST_UPDATE_BLOCK_PROPERTY': {
       const ticks = state.actors[action.trackIndex].ticks || [];
       const block = ticks[action.tickIndex];
-      propery = block.properties.find(p => p.key === action.key) || {};
-      propery.value = action.value;
+      const property = block.properties.find(p => p.key === action.key);
+      if (property) {
+        property.value = action.value;
+      } else {
+        block.properties.push({ key: action.key, value: action.value });
+      }
+
       return {
         ...state
       };

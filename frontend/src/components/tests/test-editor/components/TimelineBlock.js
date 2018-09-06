@@ -31,8 +31,9 @@ class TimelineBlock extends React.Component {
               className={className}
               draggable
               style={style}
-              onMouseDown={onSelect}
+              onClick={onSelect}
               onDragStart={ev => {
+                onSelect();
                 ev.dataTransfer.effectAllowed = 'move';
                 ev.dataTransfer.dropEffect = 'move';
                 ev.dataTransfer.setData(

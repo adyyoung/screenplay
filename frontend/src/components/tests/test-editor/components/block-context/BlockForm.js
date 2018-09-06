@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import Context from '../../../../Context';
 import types from './types';
 import { updateBlockProperty } from '../../../../../actions/tests';
+import LocatorInput from './LocatorInput';
 const styles = theme => ({
   input: {
     backgroundColor: 'black',
@@ -42,7 +43,11 @@ class BlockForm extends React.Component {
   handleChange(key, value) {
     const newProperties = this.state.properties;
     const entry = newProperties.find(p => p.key === key);
-    entry.value = value;
+    if (entry) {
+      entry.value = value;
+    } else {
+      newProperties.push({ key, value });
+    }
     this.setState({ properties: newProperties });
   }
   render() {
@@ -97,7 +102,21 @@ class BlockForm extends React.Component {
                                 onFocus={e => e.target.select()}
                                 value={value || ''}
                               />
-                            )
+                            ),
+                            LOCATOR: () => {
+                              return (
+                                <LocatorInput
+                                  className={classes.input}
+                                  value={value}
+                                  onChange={({ target: { value } }) =>
+                                    this.handleChange(prop.key, value)
+                                  }
+                                  onBlur={() =>
+                                    this.handleSubmit(dispatch, prop.key)
+                                  }
+                                />
+                              );
+                            }
                           }[prop.type](prop.key, value)}
                         </td>
                       </tr>
