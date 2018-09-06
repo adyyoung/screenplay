@@ -58,6 +58,14 @@ const testReducer = (state = {}, action) => {
         ...state
       };
     }
+    case 'TEST_MOVE_BLOCK': {
+      const copy = state.actors[action.trackIndex].ticks[action.tickIndex];
+      state.actors[action.trackIndex].ticks[action.tickIndex] = null;
+      state.actors[action.targetTrackIndex].ticks[
+        action.targetTickIndex
+      ] = copy;
+      return state;
+    }
     default:
       return state;
   }
@@ -69,7 +77,8 @@ const testsReducer = (state = {}, action) => {
     case 'TEST_DELETE_TRACK':
     case 'TEST_ADD_BLOCK':
     case 'TEST_DELETE_BLOCK':
-    case 'TEST_UPDATE_BLOCK_PROPERTY': {
+    case 'TEST_UPDATE_BLOCK_PROPERTY':
+    case 'TEST_MOVE_BLOCK': {
       return {
         ...state,
         [action.id]: testReducer(state[action.id], action)

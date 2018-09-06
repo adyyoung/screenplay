@@ -7,6 +7,7 @@ import TrackContext from './components/TrackContext';
 import BlockSelectorContext from './components/BlockSelectorContext';
 import TimelineBlock from './components/TimelineBlock';
 import BlockContext from './components/BlockContext';
+import TimelineEmptyBlock from './components/TimelineEmptyBlock';
 const headerHeight = 40;
 const tickWidth = 200;
 const leftColumn = 140;
@@ -229,28 +230,30 @@ class TestEditor extends React.Component {
                           block={test.actors[i].ticks[t]}
                           className={classes.taskBlock}
                         />
-                      ) : selectedTickIndex === t &&
-                      selectedTrackIndex === i ? (
-                        <div
-                          // selected empty block
-                          className={classes.taskBlock}
-                          style={{
-                            flex: '1',
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            border: '1px solid black'
-                          }}
-                        />
                       ) : (
-                        <div
-                          //  empty block
+                        <TimelineEmptyBlock
                           className={classes.taskBlock}
+                          selected={
+                            selectedTickIndex === t && selectedTrackIndex === i
+                          }
+                          test={test}
+                          trackIndex={i}
+                          tickIndex={t}
+                          selectedTrackIndex={selectedTrackIndex}
+                          selectedTickIndex={selectedTickIndex}
                           style={{ flex: '1' }}
-                          onClick={() =>
+                          onSelect={() =>
                             this.setState({
                               selectedTickIndex: t,
                               selectedTrackIndex: i
                             })
                           }
+                          onDrop={() => {
+                            this.setState({
+                              selectedTickIndex: t,
+                              selectedTrackIndex: i
+                            });
+                          }}
                         />
                       )}
 

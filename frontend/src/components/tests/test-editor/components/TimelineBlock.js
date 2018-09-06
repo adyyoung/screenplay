@@ -7,7 +7,21 @@ import types from './block-context/types';
 const styles = theme => ({});
 class TimelineBlock extends React.Component {
   render() {
-    const { className, block, onSelect, selected } = this.props;
+    const {
+      className,
+      block,
+      onSelect,
+      selected,
+      tickIndex,
+      trackIndex
+    } = this.props;
+
+    const style = {
+      flex: '1',
+      backgroundColor: selected ? 'white' : 'rgba(255,255,255,0.6)',
+      border: '1px solid black',
+      color: 'black'
+    };
 
     return (
       <Context>
@@ -15,13 +29,17 @@ class TimelineBlock extends React.Component {
           return (
             <div
               className={className}
-              style={{
-                flex: '1',
-                backgroundColor: selected ? 'white' : 'rgba(255,255,255,0.6)',
-                border: '1px solid black',
-                color: 'black'
+              draggable
+              style={style}
+              onMouseDown={onSelect}
+              onDragStart={ev => {
+                ev.dataTransfer.effectAllowed = 'move';
+                ev.dataTransfer.dropEffect = 'move';
+                ev.dataTransfer.setData(
+                  'text',
+                  JSON.stringify({ trackIndex, tickIndex })
+                );
               }}
-              onClick={onSelect}
             >
               <div style={{ margin: 8 }}>{types[block.type].label}</div>
             </div>
