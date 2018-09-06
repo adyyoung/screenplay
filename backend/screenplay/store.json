@@ -107,7 +107,7 @@
       "actors": [
         {
           "actorId": "cjllbta1l00002la03hf7jtz9",
-          "trackName": "Track 1",
+          "trackName": "Jane",
           "ticks": [
             {
               "type": "LAUNCH_BROWSER",
@@ -118,14 +118,18 @@
                 },
                 {
                   "key": "TIMEOUT",
-                  "value": "5000"
+                  "value": "1000"
                 }
               ]
             },
-            null,
             {
-              "type": "MAXIMIZE_WINDOW",
-              "properties": []
+              "type": "NAVIGATE_TO_URL",
+              "properties": [
+                {
+                  "key": "URL",
+                  "value": "http://google.com"
+                }
+              ]
             },
             {
               "type": "ENTER_TEXT",
@@ -136,39 +140,29 @@
                 },
                 {
                   "key": "LOCATOR",
-                  "value": ""
+                  "value": "#p"
                 },
                 {
                   "key": "KEYS",
-                  "value": ""
+                  "value": "Hello world"
                 }
               ]
+            },
+            {
+              "type": "CLICK_ELEMENT",
+              "properties": []
             }
           ]
         },
         {
           "actorId": "cjllbu9yj00012la0oi471d0k",
-          "trackName": "Track 3",
-          "ticks": [
-            null,
-            {
-              "type": "LAUNCH_BROWSER",
-              "properties": [
-                {
-                  "key": "BROWSER",
-                  "value": "CHROME"
-                },
-                {
-                  "key": "TIMEOUT",
-                  "value": "5000"
-                }
-              ]
-            },
-            {
-              "type": "MAXIMIZE_WINDOW",
-              "properties": []
-            }
-          ]
+          "trackName": "Sam",
+          "ticks": []
+        },
+        {
+          "actorId": "cjllby7g300042la01l1of4uw",
+          "trackName": "Robot",
+          "ticks": []
         }
       ]
     }

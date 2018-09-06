@@ -267,6 +267,7 @@ class TestEditor extends React.Component {
             {selectedTickIndex !== null ? (
               test.actors[selectedTrackIndex].ticks[selectedTickIndex] ? (
                 <BlockContext
+                  key={selectedTickIndex + ',' + selectedTrackIndex}
                   selectedTickIndex={selectedTickIndex}
                   selectedTrackIndex={selectedTrackIndex}
                   test={test}
@@ -275,6 +276,7 @@ class TestEditor extends React.Component {
                 </BlockContext>
               ) : (
                 <BlockSelectorContext
+                  key={selectedTickIndex + ',' + selectedTrackIndex}
                   selectedTickIndex={selectedTickIndex}
                   selectedTrackIndex={selectedTrackIndex}
                   test={test}
@@ -282,6 +284,7 @@ class TestEditor extends React.Component {
               )
             ) : (
               <TrackContext
+                key={selectedTrackIndex}
                 selectedTrackIndex={selectedTrackIndex}
                 test={test}
                 onDelete={() => this.clearSelection()}

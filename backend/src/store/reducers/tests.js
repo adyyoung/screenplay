@@ -49,6 +49,15 @@ const testReducer = (state = {}, action) => {
         actors: [...state.actors]
       };
     }
+    case 'TEST_UPDATE_BLOCK_PROPERTY': {
+      const ticks = state.actors[action.trackIndex].ticks || [];
+      const block = ticks[action.tickIndex];
+      propery = block.properties.find(p => p.key === action.key) || {};
+      propery.value = action.value;
+      return {
+        ...state
+      };
+    }
     default:
       return state;
   }
@@ -59,7 +68,8 @@ const testsReducer = (state = {}, action) => {
     case 'TEST_RENAME_TRACK':
     case 'TEST_DELETE_TRACK':
     case 'TEST_ADD_BLOCK':
-    case 'TEST_DELETE_BLOCK': {
+    case 'TEST_DELETE_BLOCK':
+    case 'TEST_UPDATE_BLOCK_PROPERTY': {
       return {
         ...state,
         [action.id]: testReducer(state[action.id], action)

@@ -2,19 +2,12 @@ import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../../Context';
-import { testRenameTrack } from '../../../../actions/tests';
+import {} from '../../../../actions/tests';
 import types from './block-context/types';
 const styles = theme => ({});
 class TimelineBlock extends React.Component {
   render() {
-    const {
-      className,
-      trackIndex,
-      tickIndex,
-      block,
-      onSelect,
-      selected
-    } = this.props;
+    const { className, block, onSelect, selected } = this.props;
 
     return (
       <Context>

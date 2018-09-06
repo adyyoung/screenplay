@@ -1,6 +1,6 @@
 //options  =  [{label:'', value: '']
 const options = (key, label, options, defaultValue) => ({
-  type: 'OPTIONS',
+  type: 'SELECT',
   label,
   key,
   options,

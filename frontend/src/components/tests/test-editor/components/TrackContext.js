@@ -37,11 +37,6 @@ class TrackContext extends React.Component {
   state = {
     trackName: this.props.test.actors[this.props.selectedTrackIndex].trackName
   };
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      trackName: nextProps.test.actors[nextProps.selectedTrackIndex].trackName
-    });
-  }
   render() {
     const { classes, selectedTrackIndex, test, onDelete } = this.props;
     return (

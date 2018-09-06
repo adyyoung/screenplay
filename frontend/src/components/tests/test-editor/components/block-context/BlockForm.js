@@ -3,11 +3,50 @@ import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../../../Context';
 import types from './types';
-const styles = theme => ({});
+import { updateBlockProperty } from '../../../../../actions/tests';
+const styles = theme => ({
+  input: {
+    backgroundColor: 'black',
+    border: '1px solid white',
+    color: 'white'
+  }
+});
+
 class BlockForm extends React.Component {
-  render() {
+  state = {
+    properties: []
+  };
+  constructor() {
+    super();
+    this.handleChange.bind(this);
+    this.handleSubmit.bind(this);
+  }
+  componentDidMount() {
+    const { block } = this.props;
+    this.setState({
+      properties: block.properties
+    });
+  }
+  handleSubmit(dispatch, key) {
     const { selectedTrackIndex, selectedTickIndex, test } = this.props;
-    const block = test.actors[selectedTrackIndex].ticks[selectedTickIndex];
+    dispatch(
+      updateBlockProperty(
+        test.id,
+        selectedTrackIndex,
+        selectedTickIndex,
+        key,
+        this.state.properties.find(p => p.key === key).value
+      )
+    );
+  }
+  handleChange(key, value) {
+    const newProperties = this.state.properties;
+    const entry = newProperties.find(p => p.key === key);
+    entry.value = value;
+    this.setState({ properties: newProperties });
+  }
+  render() {
+    const { block, classes } = this.props;
     const formData = types[block.type];
     if (!formData) return <div>no data</div>;
     return (
@@ -18,17 +57,26 @@ class BlockForm extends React.Component {
               <table>
                 <tbody>
                   {formData.properties.map(prop => {
-                    const entry = block.properties.find(
-                      p => p.key === prop.key
-                    );
-                    const value = entry ? entry.value : null;
+                    const value = (
+                      this.state.properties.find(p => p.key === prop.key) || {}
+                    ).value;
+
                     return (
                       <tr key={prop.key}>
                         <td>{prop.label}</td>
                         <td>
                           {{
-                            OPTIONS: () => (
-                              <select value={value} onChange={() => {}}>
+                            SELECT: () => (
+                              <select
+                                className={classes.input}
+                                onChange={({ target: { value } }) =>
+                                  this.handleChange(prop.key, value)
+                                }
+                                onBlur={() =>
+                                  this.handleSubmit(dispatch, prop.key)
+                                }
+                                value={value}
+                              >
                                 {prop.options.map(o => (
                                   <option key={o.value} value={o.value}>
                                     {o.label}
@@ -38,12 +86,19 @@ class BlockForm extends React.Component {
                             ),
                             TEXT: () => (
                               <input
+                                className={classes.input}
                                 type="text"
-                                onChange={() => {}}
-                                value={value}
+                                onChange={({ target: { value } }) =>
+                                  this.handleChange(prop.key, value)
+                                }
+                                onBlur={() =>
+                                  this.handleSubmit(dispatch, prop.key)
+                                }
+                                onFocus={e => e.target.select()}
+                                value={value || ''}
                               />
                             )
-                          }[prop.type]()}
+                          }[prop.type](prop.key, value)}
                         </td>
                       </tr>
                     );

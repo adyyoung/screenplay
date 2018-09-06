@@ -51,3 +51,18 @@ export const deleteBlock = (testId, trackIndex, tickIndex) => ({
   trackIndex,
   tickIndex
 });
+
+export const updateBlockProperty = (
+  testId,
+  trackIndex,
+  tickIndex,
+  key,
+  value
+) => ({
+  type: 'TEST_UPDATE_BLOCK_PROPERTY',
+  id: testId,
+  trackIndex,
+  tickIndex,
+  key,
+  value
+});
