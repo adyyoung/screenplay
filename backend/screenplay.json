@@ -26,14 +26,14 @@
       "actors": [
         {
           "actorId": "cjlr4isv700003h5rmpxtxpfc",
-          "trackName": "Track 1",
+          "trackName": "Track 2",
           "ticks": [
             {
               "type": "LAUNCH_BROWSER",
               "properties": [
                 {
                   "key": "BROWSER",
-                  "value": "CHROME"
+                  "value": "FIREFOX"
                 },
                 {
                   "key": "TIMEOUT",
@@ -49,40 +49,6 @@
                   "value": "http://example.com"
                 }
               ]
-            },
-            {
-              "type": "ENTER_TEXT",
-              "properties": [
-                {
-                  "key": "SPECIAL_LOCATOR",
-                  "value": {
-                    "strategy": "XPATH",
-                    "locator": "asd",
-                    "override": false
-                  }
-                },
-                {
-                  "key": "KEYS",
-                  "value": "asdqwe"
-                }
-              ]
-            },
-            {
-              "type": "ENTER_TEXT",
-              "properties": [
-                {
-                  "key": "SPECIAL_LOCATOR",
-                  "value": {
-                    "strategy": "CSS",
-                    "locator": "qweqwe",
-                    "override": false
-                  }
-                },
-                {
-                  "key": "KEYS",
-                  "value": "qweqwe"
-                }
-              ]
             }
           ]
         },
@@ -90,7 +56,6 @@
           "actorId": "cjlr4isv700003h5rmpxtxpfc",
           "trackName": "Track 2",
           "ticks": [
-            null,
             null,
             null,
             null

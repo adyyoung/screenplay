@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../../Context';
 import { moveBlock } from '../../../../actions/tests';
-import types from './block-context/types';
 const styles = theme => ({});
 class TimelineEmptyBlock extends React.Component {
   state = {
@@ -12,7 +11,6 @@ class TimelineEmptyBlock extends React.Component {
   render() {
     const {
       className,
-      block,
       onSelect,
       selected,
       test,

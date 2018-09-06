@@ -270,7 +270,7 @@ class TestEditor extends React.Component {
         </div>
         {selectedTrackIndex !== null && (
           <div className={classes.trackContextRoot}>
-            {selectedTickIndex !== null ? (
+            {selectedTickIndex !== null && test.actors[selectedTrackIndex] ? (
               test.actors[selectedTrackIndex].ticks[selectedTickIndex] ? (
                 <BlockContext
                   key={selectedTickIndex + ',' + selectedTrackIndex}

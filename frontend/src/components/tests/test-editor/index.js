@@ -12,7 +12,7 @@ class Test extends React.Component {
         {({ state }) => {
           const test = state.tests[testId];
           if (test) {
-            return <TestEditor test={test} />;
+            return <TestEditor key={test.actors.length} test={test} />;
           } else {
             return null;
           }
