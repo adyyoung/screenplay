@@ -15,6 +15,22 @@
           "value": ""
         }
       ]
+    },
+    "cjlsfnl8300003h5ru8whcrjr": {
+      "id": "cjlsfnl8300003h5ru8whcrjr",
+      "name": "Doctor Dan",
+      "description": "",
+      "avatarId": "doctor",
+      "customAttributes": [
+        {
+          "key": "user_name",
+          "value": ""
+        },
+        {
+          "key": "password",
+          "value": ""
+        }
+      ]
     }
   },
   "tests": {
@@ -26,14 +42,55 @@
       "actors": [
         {
           "actorId": "cjlr4isv700003h5rmpxtxpfc",
-          "trackName": "Track 2",
+          "trackName": "Track 1",
+          "trackVariables": [
+            {
+              "key": "Search term",
+              "value": "Logo"
+            }
+          ],
           "ticks": [
             {
               "type": "LAUNCH_BROWSER",
               "properties": [
                 {
                   "key": "BROWSER",
-                  "value": "FIREFOX"
+                  "value": "CHROME"
+                },
+                {
+                  "key": "TIMEOUT",
+                  "value": "5000"
+                }
+              ]
+            },
+            {
+              "type": "NAVIGATE_TO_URL",
+              "properties": [
+                {
+                  "key": "URL",
+                  "value": "http://example.com"
+                }
+              ]
+            },
+            null
+          ]
+        },
+        {
+          "actorId": "cjlsfnl8300003h5ru8whcrjr",
+          "trackName": "Track 3",
+          "trackVariables": [
+            {
+              "key": "Search term",
+              "value": "Hat"
+            }
+          ],
+          "ticks": [
+            {
+              "type": "LAUNCH_BROWSER",
+              "properties": [
+                {
+                  "key": "BROWSER",
+                  "value": "CHROME"
                 },
                 {
                   "key": "TIMEOUT",
@@ -50,15 +107,6 @@
                 }
               ]
             }
-          ]
-        },
-        {
-          "actorId": "cjlr4isv700003h5rmpxtxpfc",
-          "trackName": "Track 2",
-          "ticks": [
-            null,
-            null,
-            null
           ]
         }
       ]

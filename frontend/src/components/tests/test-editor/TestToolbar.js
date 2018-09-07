@@ -3,13 +3,16 @@ import { withRouter } from 'react-router';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import Context from '../../Context';
+import Button from '../../shared/buttons/Button';
 const styles = theme => ({
   toolbar: {
     ...theme.mixins.toolbar,
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing.unit * 3,
-    backgroundColor: '#919191'
+    paddingLeft: theme.spacing.unit * 3,
+    paddingRight: theme.spacing.unit * 3,
+    backgroundColor: '#545454',
+    color: 'white'
   }
 });
 const TestToolbar = ({
@@ -27,6 +30,7 @@ const TestToolbar = ({
             return (
               <React.Fragment>
                 <div style={{ flex: 1 }}>{test.name}</div>
+                <Button>Scene Variables</Button>
                 {/* <Button
                 variant="contained"
                 color="secondary"

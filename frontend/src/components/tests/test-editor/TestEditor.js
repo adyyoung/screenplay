@@ -288,7 +288,11 @@ class TestEditor extends React.Component {
               )
             ) : (
               <TrackContext
-                key={selectedTrackIndex}
+                key={
+                  selectedTrackIndex +
+                  '_' +
+                  test.actors[selectedTrackIndex].trackVariables.length
+                }
                 selectedTrackIndex={selectedTrackIndex}
                 test={test}
                 onDelete={() => this.clearSelection()}

@@ -24,6 +24,15 @@ export const testRenameTrack = (testId, trackIndex, newName) => ({
   newName
 });
 
+export const testSetTrackVarible = (testId, trackIndex, index, key, value) => ({
+  type: 'TEST_SET_TRACK_VARIABLE',
+  id: testId,
+  trackIndex,
+  index,
+  key,
+  value
+});
+
 export const testDeleteTrack = (testId, trackIndex) => ({
   type: 'TEST_DELETE_TRACK',
   id: testId,

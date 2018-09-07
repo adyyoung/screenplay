@@ -8,6 +8,7 @@ const testReducer = (state = {}, action) => {
           {
             actorId: action.actorId,
             trackName: `Track ${state.actors.length + 1}`,
+            trackVariables: [],
             ticks: []
           }
         ]
@@ -18,6 +19,21 @@ const testReducer = (state = {}, action) => {
       return {
         ...state,
         actors: [...state.actors]
+      };
+    }
+    case 'TEST_SET_TRACK_VARIABLE': {
+      const { trackVariables } = state.actors[action.trackIndex];
+
+      if (action.key === '') {
+        trackVariables.splice(action.index, 1);
+      } else {
+        trackVariables[action.index] = {
+          key: action.key,
+          value: action.value
+        };
+      }
+      return {
+        ...state
       };
     }
     case 'TEST_DELETE_TRACK': {
@@ -83,6 +99,7 @@ const testsReducer = (state = {}, action) => {
     case 'TEST_ADD_BLOCK':
     case 'TEST_DELETE_BLOCK':
     case 'TEST_UPDATE_BLOCK_PROPERTY':
+    case 'TEST_SET_TRACK_VARIABLE':
     case 'TEST_MOVE_BLOCK': {
       return {
         ...state,
